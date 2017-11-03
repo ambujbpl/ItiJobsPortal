@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Email</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../static/css/AdminLTE.css">
+  <link rel="stylesheet" href="../static/css/_all-skins.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/sweetalert.css" />
+  <link rel="stylesheet" href="../css/login.css">
+  <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../static/js/jquery.validate.js"></script>
+  <script src="../static/js/sweetalert.min.js"></script>
+  <script src="../js/storage.js"></script>
+  <!-- <script src="../js/ajaxHandler.js"></script> -->
+  <!-- // <script src="../js/email.js"></script> -->
+  <style>
+    .has-feedback {
+      position: relative !important;
+    }
+
+    .form-groupcss {
+      padding: 0px 10px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .img,
+    .img1,
+    .img2 {
+      height: 15px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    .img:hover {
+      cursor: pointer;
+    }
+
+    .img1:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="url"><b>Forgot-Password</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <form id="emailvalid" method="post" class="form-horizontal form-groupcss" action="">
+        <div id="divEmailNum" class="form-group has-feedback">
+          <input type="text" class="form-control" id="email" name="email" placeholder="Email" />
+        </div>
+
+        <!-- New password code -->
+        <div class="form-group has-feedback hide divPass">
+          <!-- <label for="password">Password</label> -->
+          <span class="fa fa-eye img" onmousedown="mDown()" onmouseup="mUp()" aria-hidden="true" name="password"></span>
+          <input id="password" name="password" type="password" class="form-control" placeholder="Password" />
+        </div>
+        <div class="form-group has-feedback hide divPass">
+          <!-- <label for="password">Confirm Password</label> -->
+          <span class="fa fa-eye img1" onmousedown="mDown1()" onmouseup="mUp1()" aria-hidden="true" name="Confirm_Password"></span>
+          <input type="password" class="form-control" id="Confirm_Password" name="Confirm_Password" placeholder="Re-Enter-Password" />
+        </div>
+        <!-- <div class="form-group has-feedback otpdiv" id="otpdiv">
+          <span class="fa fa-reply img2" aria-hidden="true"></span>
+          <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter-OTP(check your mail for OTP)" />
+        </div> -->
+
+
+        <div class="row no-padding no-margin">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
+            <button type="submit" class="btn btn-primary emailbutton" name="signup" value="Sign up">Submit</button>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
+            <a class="pull-right" style="margin-top:14px" href="../login.html">Back to Login</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="../js/forget-emailPass.js"></script>

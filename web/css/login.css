@@ -1,0 +1,131 @@
+.myNavbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px !important;
+}
+
+.myContainerCss {
+  margin-top: 70px !important;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.pull-right {
+  float: right!important;
+}
+
+.iti-Padding5 {
+  padding: 5px;
+}
+
+.iti-Padding10 {
+  padding: 40px 10px;
+}
+
+.iti-DivBod {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.iti-title {
+  /*border-bottom: 2px solid #ccc;*/
+  color: #71a1ed;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.margin-top {
+  margin: 20px 0px;
+}
+
+.iti-DivCen {
+  text-align: center;
+}
+
+.iti-stitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.iti-fdoc {
+  color: #000 !important;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.total-css {
+  text-align: center;
+  font-size: 30px;
+}
+
+.border {
+  border: 1px solid red;
+}
+
+.iti-Footer {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  background-color: #292b2c;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  position: relative;
+  bottom: 0;
+}
+
+/*form css*/
+
+.form-groupcss {
+  padding: 0px 0px;
+  position: relative;
+}
+
+.error {
+  color: red;
+}
+
+.img {
+  height: 15px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.img:hover {
+  cursor: pointer;
+}
+
+.submitbuttonCss {
+  padding-right: 0px;
+  padding-left: 10px;
+}
+
+/*Class*/
+
+.hide {
+  visibility: hidden;
+}
+
+.displayNone {
+  display: none;
+}
+
+.opacityP1 {
+  opacity: 0.1;
+}
+
+.opacity1 {
+  opacity: 1;
+}
+
+/*.carousel-inner{
+  max-height: 280px;
+}*/
