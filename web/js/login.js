@@ -1,18 +1,14 @@
 $(document).ready(function() {
   $(".contactUs").click(function() {
-    // alert("hello contect us");
     $('.iti-ftitle').html("Contact Us");
     $('.iti-fdoc').html("ITI JOBS<br>Bhopal<br>Office Hours: 9AM-5PM Monday-Friday<br>Tel: 9753750955<br>Email: ambujdubey89@gmail.com");
   })
   $(".home").click(function() {
-    // alert("hello home");
     $('.iti-ftitle').html("");
     $('.iti-fdoc').html("");
-    // $('.iti-DivBod').addClass('displayNone');
-    // $('.carousel').removeClass('displayNone');
+    ss('displayNone');
   });
   $(".aboutIti").click(function() {
-    // alert("hello aboutIti");
     $('.iti-ftitle').html("About ITI Jobs");
     $('.iti-fdoc').html("ITI Jobs is a portal. We will provide contact between student and comapany who have passed ITI trade and registered with the ITI Jobs Portal. On this portal registerd company find the cadidate in our database according to the trade and select a valid candidate. we are not a typical job provider we are only provide the way to candidate and companies. ITI Jobs Portal initiative is provide the skills candidate to company and company grab skills candidate.");
   });
@@ -118,39 +114,40 @@ function myFunction() {
     "password": decodedString
   };
   console.log(obj);
-  $.ajax({
-    url: "/login",
-    type: "POST",
-    data: JSON.stringify(obj),
-
-    dataType: "json",
-    contentType: "application/json; charset=utf-8",
-    success: function(res) {
-      // console.log(res.resCode);
-      if (res.resCode == 'OK') {
-        console.log(res.msg);
-        var tok = res.token;
-        var role = res.role_id;
-        var name = res.emp_name;
-        login = {
-          "Tokan": tok,
-          "Role": role,
-          "Name": name
-        };
-        storagesetItem("login", login);
-        window.location.replace("dashboard.html");
-      } else {
-        console.log(res.msg);
-        swal("Error!", res.msg, "error");
-      }
-
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {
-      swal("Error!", "sorry unable to login. please check your internet connection", "error");
-      // console.log("fail login");
-    }
-
-  });
+  // $.ajax({
+  //   url: "/login",
+  //   type: "POST",
+  //   data: JSON.stringify(obj),
+  //
+  //   dataType: "json",
+  //   contentType: "application/json; charset=utf-8",
+  //   success: function(res) {
+  //     // console.log(res.resCode);
+  //     if (res.resCode == 'OK') {
+  //       console.log(res.msg);
+  //       var tok = res.token;
+  //       var role = res.role_id;
+  //       var name = res.emp_name;
+  //       login = {
+  //         "Tokan": tok,
+  //         "Role": role,
+  //         "Name": name
+  //       };
+  //       storagesetItem("login", login);
+  //       window.location.replace("dashboard.html");
+  //     } else {
+  //       console.log(res.msg);
+  //       swal("Error!", res.msg, "error");
+  //     }
+  //
+  //   },
+  //   error: function(XMLHttpRequest, textStatus, errorThrown) {
+  //     swal("Error!", "sorry unable to login. please check your internet connection", "error");
+  //     // console.log("fail login");
+  //   }
+  //
+  // });
+  window.location.replace("dashboard.html");
 }
 
 $.validator.setDefaults({

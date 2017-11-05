@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Bootstrap 3.3.6 -->
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/itiLogo.jpg">
+
+  <title>ITI Jobs Portal</title>
   <link rel="stylesheet" href="static/css/bootstrap.min.css" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -15,15 +20,13 @@
   <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="static/js/jquery.validate.js"></script>
   <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-  <!-- <script type="text/javascript" src="static/js/jquery.validate.js"></script> -->
   <script src="js/login.js"></script>
-  <!-- <script src="js/storage.js"></script> -->
+  <script src="js/storage.js"></script>
   <script src="static/js/sweetalert.min.js"></script>
   <!-- <script src="js/ajaxHandler.js"></script></head> -->
 
   <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse myNavbar">
-      <!-- <img src="img/ITIJOBSICON.jpg" alt="ITI JOBS" width="62" height="42"> -->
       <a class="navbar-brand" href="#">ITI JOBS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -113,20 +116,11 @@
             <div class="iti-title">
               <div class="iti-ftitleForm">Login to your Account</div>
             </div>
-            <!-- <h2>Login to your Account</h2> -->
-            <!-- <div class="login-col-fields">
-                <input id="Text1" placeholder="Enter Email id/Mobile No." type="text">
-                <input id="Text2" placeholder="Enter Password" type="text">
-                    <input id="Submit1" value="Login" class="login-button" type="submit">
-                    <p>OR</p>
-                    <a href="Comingsoon.html" class="signuplink" target="_blank">Sign up For New Registration</a>
-                    </div> -->
 
             <form id="signupForm" method="post" class="form-horizontal" action="">
               <div class="form-group form-groupcss has-feedback">
 
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email" />
-                <!-- <i class="fa fa-sign-in pull-right" aria-hidden="true"></i> -->
               </div>
               <div class="form-group form-groupcss has-feedback">
                 <span class="fa fa-eye img" onmousedown="mDown()" onmouseup="mUp()" aria-hidden="true" name="password"></span>
@@ -158,9 +152,7 @@
           <div class="iti-DivBod iti-Padding10 iti-DivCen">
             <img class="img-rounded" src="img/company.png" alt="Total Company image" width="65" height="65">
             <div class="total-css total-company">0</div>
-            <div class="iti-stitle">Total Company</div>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-
+            <div class="iti-stitle">Total Companies</div>
           </div>
         </div>
         <!-- /.col-lg-4 -->
@@ -168,9 +160,7 @@
           <div class="iti-DivBod iti-Padding10 iti-DivCen">
             <img class="img-rounded" src="img/itiicon.png" alt="Total ITI image" width="65" height="65">
             <div class="total-css total-iti">0</div>
-            <div class="iti-stitle">Total ITI</div>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-
+            <div class="iti-stitle">Total ITI Listed</div>
           </div>
         </div>
         <!-- /.col-lg-4 -->
@@ -179,8 +169,6 @@
             <img class="img-rounded" src="img/student.png" alt="Total Student image" width="65" height="65">
             <div class="total-css total-student">0</div>
             <div class="iti-stitle">Total Students</div>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-
           </div>
         </div>
         <!-- /.col-lg-4 -->
@@ -189,8 +177,6 @@
             <img class="img-rounded" src="img/placement.png" alt="Total Placement image" width="65" height="65">
             <div class="total-css total-placement">0</div>
             <div class="iti-stitle">Total Placements</div>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-
           </div>
         </div>
       </div>
@@ -199,7 +185,6 @@
     <!-- container closed -->
     <!-- FOOTER -->
     <footer class="iti-Footer">
-      <!-- <p class="float-right"><a href="#">Back to top</a></p> -->
       <div>All Rights Reserved, &copy; 2017 ITI JOBS</div>
     </footer>
 
