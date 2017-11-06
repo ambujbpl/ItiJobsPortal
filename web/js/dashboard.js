@@ -8,14 +8,14 @@ $(document).ready(function() {
   $('.help').click(function() {
     $('#exampleModalLongTitle').html("Help");
     // $('.listComDetailsDiv').removeClass('hide');
-    $('.modal-body').html("ITI JOBS<br>Bhopal<br>Office Hours: 9AM-5PM Monday-Friday<br>Tel: 9753750955<br>Email: ambujdubey89@gmail.com");
+    $('.modal-body').html("<div style='text-align: center';>ITI JOBS<br>Bhopal<br>Office Hours: 9AM-5PM Monday-Friday<br>Tel: 9753750955<br>Email: ambujdubey89@gmail.com</div>");
 
   });
   // for profile click function open modal
   $('.profile').click(function() {
     $('#exampleModalLongTitle').html("Profile");
     // $('.listComDetailsDiv').removeClass('hide');
-    $('.modal-body').html("<div style='text-align: center';><img src='img/ambujImage.jpg' alt='Profile Image' height='82' width='82'><br><br><table class='myTable table-striped table-bordered'><tr><td>Name</td><td>Ambuj Dubey</td></tr><tr><td>Mobile Number</td><td>9753750955</td></tr><tr><td>Role</td><td>Admin</td></tr><tr><td>Email ID</td><td>ambujdubey89@gmail.com</td></tr><table></div>");
+    $('.modal-body').html("<div style='text-align: center';><img src='img/ambujImage.jpg' style='border-radius: 50%' alt='Profile Image' height='102' width='102'><br><br><table class='myTable table-striped table-bordered'><tr><td>Name</td><td>Ambuj Dubey</td></tr><tr><td>Mobile Number</td><td>9753750955</td></tr><tr><td>Role</td><td>Admin</td></tr><tr><td>Email ID</td><td>ambujdubey89@gmail.com</td></tr><table></div>");
 
   });
   // for dashboard click function
@@ -24,10 +24,10 @@ $(document).ready(function() {
     window.location.replace("login.html");
   });
   // for add activeA class in comman list component in Navbar on-click function
-  $('.listCom').click(function() {
-    $('.listCom').removeClass('activeA');
-    $(this).addClass('activeA');
-  });
+  // $('.listCom').click(function() {
+  //   $('.listCom').removeClass('activeA');
+  //   $(this).addClass('activeA');
+  // });
   // for add activeA class in comman list component in Sidebar on-click function
   $('.listComA').click(function() {
     $('.viewDetailsDiv').removeClass('hide');
@@ -38,7 +38,7 @@ $(document).ready(function() {
   // for Sidebar anch1 click function
   $('.anch1').click(function() {
     $('.anchLegend').html("Total Companies");
-    $('.anchPara').html("We have registered more then 30 company.<br>The industries are benefitted with the ready to employ skilled candidates thereby reducing transition time on training the manpower on specific skilling requirements.<br>Thus, the project optimizes the cost incurred by industries on training activities and benefits the ITI students with secured jobs.<br>Some of them are below.");
+    $('.anchPara').html("We have registered more then 30 company.<br>Some of them are below.");
 $('.headerId').html("company ID");
 $('.headerName').html("company Name");
 $('.headerArea').html("company Location");
@@ -48,10 +48,10 @@ $('.headerDetails').html("Year of Establishment");
   // for Sidebar anch2 click function
   $('.anch2').click(function() {
     $('.anchLegend').html("Total ITI Listed");
-    $('.anchPara').html("We have registered more then 100 ITI.<br>The industries are benefitted with the ready to employ skilled candidates thereby reducing transition time on training the manpower on specific skilling requirements.<br>Thus, the project optimizes the cost incurred by industries on training activities and benefits the ITI students with secured jobs.<br>Some of them are below.");
-    $('.headerId').html("Collage ID");
-    $('.headerName').html("Collage Name");
-    $('.headerArea').html("Collage Location");
+    $('.anchPara').html("We have registered more then 100 ITI.<br>Some of them are below.");
+    $('.headerId').html("college ID");
+    $('.headerName').html("college Name");
+    $('.headerArea').html("college Location");
     $('.headerDetails').html("Course");
     $('#tableBody').html("<tr><td>2,001</td><td>SGS collage</td><td>Bhopal</td><td>1 year cource</td></tr><tr><td>2,002</td><td>Raah collage</td><td>Itarsi</td><td>6 Month course</td></tr><tr><td>2,003</td><td>Gov ITI collage</td><td>Vidish</td><td>2 year PG-Diploma coure</td></tr><tr><td>2,004</td><td>Laxmipati institute</td><td>Jabalpur</td><td>! year ITI course</td></tr><tr><td>2,005</td><td>Ashoka collage</td><td>Indore</td><td>1 year course</td></tr>");
 
@@ -59,7 +59,7 @@ $('.headerDetails').html("Year of Establishment");
   // for Sidebar anch3 click function
   $('.anch3').click(function() {
     $('.anchLegend').html("Total Students");
-    $('.anchPara').html("We have register more then 500 students.<br>The industries are benefitted with the ready to employ skilled candidates thereby reducing transition time on training the manpower on specific skilling requirements.<br>Thus, the project optimizes the cost incurred by industries on training activities and benefits the ITI students with secured jobs.<br>Some of them are below.");
+    $('.anchPara').html("We have register more then 500 students.<br>Some of them are below.");
     $('.headerId').html("Student ID");
     $('.headerName').html("Student Name");
     $('.headerArea').html("Student Address");
@@ -70,7 +70,11 @@ $('.headerDetails').html("Year of Establishment");
   // for Sidebar anch4 click function
   $('.anch4').click(function() {
     $('.anchLegend').html("Total Placements");
-    $('.anchPara').html("20 Student got placed by ITI Jobs Portal.<br>The industries are benefitted with the ready to employ skilled candidates thereby reducing transition time on training the manpower on specific skilling requirements.<br>Thus, the project optimizes the cost incurred by industries on training activities and benefits the ITI students with secured jobs.<br>Some of them are below.");
+    $('.anchPara').html("20 Student got placed by ITI Jobs Portal.<br>Some of them are below.");
+    $('.headerId').html("Student ID");
+    $('.headerName').html("Student Name");
+    $('.headerArea').html("Student Address");
+    $('.headerDetails').html("Student Qualification");
     $('#tableBody').html("<tr><td>4,001</td><td>Anita</td><td>Bhopal</td><td>Diploma</td></tr><tr><td>4,002</td><td>Rishabh</td><td>Indore</td><td>PG-Diploma</td></tr><tr><td>4,003</td><td>Ajay</td><td>Vidish</td><td>PG-Diploma</td></tr><tr><td>4,004</td><td>Ravi</td><td>Jabalpur</td><td>ITI</td></tr><tr><td>4,005</td><td>Shivendra</td><td>Indore</td><td>12th</td></tr>");
 
   });
