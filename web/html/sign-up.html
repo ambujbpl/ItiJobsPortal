@@ -72,11 +72,18 @@
 
     .registration {
       text-align: right;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .registrationDiv {
-      position: relative;
-      vertical-align: middle !important;
+      /*padding-top: 10px;*/
+      display: inline-block;
+    }
+
+    .radioSex {
+      padding-top: 10px;
     }
   </style>
 
@@ -143,15 +150,15 @@
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
+              <label for="validation5">Date of Birth</label>
+              <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" />
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
               <label for="validation4">Sex</label>
               <div class="radioSex">
                 <input type="radio" name="sex" value="male" />Male
                 <input type="radio" name="sex" value="female" />Female
               </div>
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Date of Birth</label>
-              <input type="text" class="form-control" id="validation5" placeholder="1-12-1993" required="">
             </div>
           </div>
         </div>
@@ -260,8 +267,10 @@
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
               <label for="validation5">College Type</label>
-              <input type="radio" name="type" value="gov" />Government
-              <input type="radio" name="type" value="pri" />Private
+              <div class="radioSex">
+                <input type="radio" name="type" value="gov" />Government
+                <input type="radio" name="type" value="pri" />Private
+              </div>
             </div>
           </div>
         </div>
@@ -407,13 +416,13 @@
     </div>
   </div>
 
-  <!-- For Company Registration -->
+  <!-- For Admin Registration -->
 
   <div id="formAdmin" class="container containerCss containerCssForm border hide">
     <div class="headerDiv1 backgroundColor">
       <form class="container no-padding" id="form-validation" novalidate="">
         <div class="formTitle  border">Admin Details
-          <div class="row no-margin headerDiv2">
+          <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
               <label for="validation1">Name</label>
               <input type="text" class="form-control" id="adminName" placeholder="Ashoka Institute" value="Jhon" required="">
@@ -456,7 +465,7 @@
         <div class="formTitle border">Upload Admin Photo
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
-              <label for="validation1">select Admin Logo</label>
+              <label for="validation1">select Admin Photo</label>
               <input type="file" class="form-control" id="validation1" value="" required="">
             </div>
           </div>
@@ -470,12 +479,14 @@
     <div class="headerDiv1 backgroundColor">
       <div class="formTitle border">
         <div class="row no-margin headerDiv2 paddingBottom">
-          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 no-padding registration">
-            <div class="registrationDiv">For Student Registration amount is 100 Rupees. Please check for fee submission.</div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 no-padding registration">
+            <div class="registrationDiv"><span class="registrationSpan">For Student Registration amount is 100 Rupees. Please check for fee submission.</span>
+              <input id="checkBox" type="checkbox">
+            </div>
+
           </div>
-          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding border registration">
-            <input id="checkBox" type="checkbox">
-            <button class="btn btn-secondary btn-md" type="submit">Submit</button>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 no-padding registration">
+            <button class="btn btn-secondary btn-sm" type="submit">Submit</button>
           </div>
         </div>
       </div>
@@ -491,6 +502,9 @@
   <script src="../static/js/sweetalert.min.js"></script>
   <script src="../js/storage.js"></script>
   <!-- <script src="js/ajaxHandler.js"></script></head> -->
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
   <script src="../js/sign-up.js"></script>
   <!-- /.login-box -->
 </body>
