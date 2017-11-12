@@ -85,6 +85,46 @@
     .radioSex {
       padding-top: 10px;
     }
+    .red{
+      color: red;
+    }
+
+    /*text animation css*/
+    .textErrorDiv{
+      position: relative;
+      width: 100%;
+      min-height: 20px;
+      overflow-x: hidden;
+    }
+    .textError{
+      font-size: 12px;
+    	margin:0 0 0 0;
+    	width: -moz-fit-content;
+    	width: fit-content;
+    	/*height: 10%;*/
+        position: absolute;
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+        animation-name: example;
+        /*animation-duration: 4s;
+    	animation-iteration-count: infinite;*/
+        -webkit-animation: mymove 10s infinite; /* Safari 4.0 - 8.0 */
+        animation: mymove 10s infinite;
+    }
+    .textError {-webkit-animation-timing-function: ease-in-out;}
+    .textError {animation-timing-function: ease-in-out;}
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes mymove {
+        from {left: 0px;}
+        to {left: 100%;}
+    }
+
+/* Standard syntax */
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 100%;}
+}
+
   </style>
 
 </head>
@@ -122,6 +162,11 @@
             </div>
           </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding textErrorDiv">
+          <div class="textError red" id="error1">All &#42 field is mandatory</div>
+          <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
+
+</div>
       </div>
     </div>
   </div>
@@ -130,56 +175,60 @@
     <div class="headerDiv1 backgroundColor">
       <form class="container no-padding" id="form-validation" novalidate="">
         <div class="formTitle  border">Student Details
-          <div class="row no-margin headerDiv2">
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Student Name</label>
-              <input type="text" class="form-control" id="studentName" placeholder="Student Name" value="Jhon" required="">
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Father's Name</label>
-              <input type="text" class="form-control" id="validation2" placeholder="Father Name" value="Doe" required="">
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Mother's Name</label>
-              <input type="text" class="form-control" id="validation2" placeholder="Mother Name" value="Loren" required="">
-            </div>
-          </div>
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Email</label>
-              <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
+              <label for="validation1">Student Name<i class="red"> &#42</i></label>
+              <input type="text" class="form-control" id="studentName" placeholder="Student Name" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Date of Birth</label>
+              <label for="validation2">Father's Name<i class="red"> &#42</i></label>
+              <input type="text" class="form-control" id="validation2" placeholder="Father Name" value="" required="">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
+              <label for="validation2">Mother's Name<i class="red"> &#42</i></label>
+              <input type="text" class="form-control" id="validation2" placeholder="Mother Name" value="" required="">
+            </div>
+          <!-- </div> -->
+          <!-- <div class="row no-margin headerDiv2 paddingBottom"> -->
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
+              <label for="validation3">Email<i class="red"> &#42</i></label>
+              <input type="email" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
+              <label for="validation5">Date of Birth<i class="red"> &#42</i></label>
               <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" />
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">Sex</label>
+              <label for="validation4">Sex<i class="red"> &#42</i></label>
               <div class="radioSex">
                 <input type="radio" name="sex" value="male" />Male
                 <input type="radio" name="sex" value="female" />Female
               </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
+            </div>
           </div>
         </div>
         <div class="formTitle border">Student Address
-          <div class="row no-margin headerDiv2">
+          <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Address</label>
+              <label for="validation3">Address<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="12/7 Rajiv Nagar" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">City</label>
+              <label for="validation4">City<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation4" placeholder="City" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">State</label>
+              <label for="validation5">State<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="MP" required="">
             </div>
-          </div>
-          <div class="row no-margin headerDiv2 paddingBottom">
+          <!-- </div> -->
+          <!-- <div class="row no-margin headerDiv2 paddingBottom"> -->
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Pincode</label>
+              <label for="validation5">Pincode<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="462021" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
@@ -187,51 +236,65 @@
               <input type="text" class="form-control" id="validation3" placeholder="07554602159" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">Mobile</label>
+              <label for="validation4">Mobile<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation4" placeholder="99775418XX" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">Education Details
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Name of College</label>
+              <label for="validation1">Name of College<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation1" placeholder="Government Industrial Training Institute" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Name of Degree</label>
+              <label for="validation2">Name of Degree<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation2" placeholder="electrician" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Passing Year</label>
+              <label for="validation2">Passing Year<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation2" placeholder="2017" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Percentage of Marks</label>
+              <label for="validation2">Percentage of Marks<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation2" placeholder="78" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">High School Percentag</label>
+              <label for="validation1">High School Percentag<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation1" placeholder="67" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Intermediate Percentage</label>
-              <input type="text" class="form-control" id="validation1" placeholder="70" value="" required="">
+              <label for="validation1">Willing to job<i class="red"> &#42</i></label>
+              <div class="radioSex">
+                <input type="radio" name="jobs" value="yes" />Yes
+                <input type="radio" name="jobs" value="no" />No
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
-        <div class="formTitle border">Resume and Photo
+        <!-- <div class="formTitle border">Resume and Photo
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
-              <label for="validation1">Upload Resume</label>
+              <label for="validation1">Upload Resume<i class="red"> &#42</i></label>
               <input type="file" class="form-control" id="validation1" value="" required="">
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
-              <label for="validation2">Upload Photo</label>
+              <label for="validation2">Upload Photo<i class="red"> &#42</i></label>
               <input type="file" class="form-control" id="validation2" value="" required="">
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+            </div>
           </div>
-        </div>
+        </div> -->
       </form>
     </div>
   </div>
@@ -244,83 +307,107 @@
         <div class="formTitle  border">ITI College Details
           <div class="row no-margin headerDiv2">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">College Name</label>
+              <label for="validation1">College Name<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="itiName" placeholder="Ashoka Institute" value="Jhon" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">College Registration Number</label>
+              <label for="validation2">College Registration Number<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation2" placeholder="Father Name" value="Doe" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Landline Number</label>
+              <label for="validation2">Landline Number<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation2" placeholder="Mother Name" value="Loren" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Email</label>
+              <label for="validation3">Email<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">Mobile</label>
+              <label for="validation4">Mobile<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">College Type</label>
+              <label for="validation5">College Type<i class="red"> &#42</i></label>
               <div class="radioSex">
                 <input type="radio" name="type" value="gov" />Government
                 <input type="radio" name="type" value="pri" />Private
               </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">ITI College Address
           <div class="row no-margin headerDiv2">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Address</label>
+              <label for="validation3">Address<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="12/7 Rajiv Nagar" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">City</label>
+              <label for="validation4">City<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation4" placeholder="City" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">State</label>
+              <label for="validation5">State<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="MP" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Pincode</label>
+              <label for="validation5">Pincode<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="462021" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">District</label>
+              <label for="validation3">District<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="07554602159" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">College HR Details
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Hr Name</label>
+              <label for="validation1">Hr Name<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation1" placeholder="Government Industrial Training Institute" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Email</label>
+              <label for="validation3">Email<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">Mobile</label>
+              <label for="validation4">Mobile<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">Upload college Logo
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
-              <label for="validation1">select College Logo</label>
+              <label for="validation1">select College Logo<i class="red"> &#42</i></label>
               <input type="file" class="form-control" id="validation1" value="" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
@@ -336,21 +423,25 @@
         <div class="formTitle  border">Company Details
           <div class="row no-margin headerDiv2">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Company Name</label>
+              <label for="validation1">Company Name<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="companyName" placeholder="Ashoka Institute" value="Jhon" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation2">Company Registration Number</label>
+              <label for="validation2">Company Registration Number<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation2" placeholder="Father Name" value="Doe" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
               <label for="validation2">Landline Number</label>
               <input type="text" class="form-control" id="validation2" placeholder="Mother Name" value="Loren" required="">
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
+            </div>
           </div>
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Email</label>
+              <label for="validation3">Email<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
@@ -358,32 +449,40 @@
               <input type="text" class="form-control" id="validation3" placeholder="www.XYZ.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">year of incorporation</label>
+              <label for="validation5">Year of Incorporation<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="2007" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">Company Address
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Address</label>
+              <label for="validation3">Address<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="12/7 Rajiv Nagar" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">City</label>
+              <label for="validation4">City<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation4" placeholder="City" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">District</label>
+              <label for="validation3">District<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="07554602159" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">State</label>
+              <label for="validation5">State<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="MP" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Pincode</label>
+              <label for="validation5">Pincode<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="462021" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
 
@@ -391,24 +490,32 @@
         <div class="formTitle border">Company HR Details
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Hr Name</label>
+              <label for="validation1">Hr Name<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation1" placeholder="Government Industrial Training Institute" value="" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Email</label>
+              <label for="validation3">Email<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">Mobile</label>
+              <label for="validation4">Mobile<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">Upload Company Logo
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
-              <label for="validation1">select Company Logo</label>
+              <label for="validation1">select Company Logo<i class="red"> &#42</i></label>
               <input type="file" class="form-control" id="validation1" value="" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
@@ -424,40 +531,48 @@
         <div class="formTitle  border">Admin Details
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation1">Name</label>
+              <label for="validation1">Name<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="adminName" placeholder="Ashoka Institute" value="Jhon" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Email</label>
+              <label for="validation3">Email<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="xyz@gmail.com" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Mobile</label>
+              <label for="validation5">Mobile<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="99775411XX" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
         </div>
         <div class="formTitle border">Admin Address
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">Address</label>
+              <label for="validation3">Address<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="12/7 Rajiv Nagar" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation4">City</label>
+              <label for="validation4">City<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation4" placeholder="City" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation3">District</label>
+              <label for="validation3">District<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation3" placeholder="07554602159" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">State</label>
+              <label for="validation5">State<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="MP" required="">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
-              <label for="validation5">Pincode</label>
+              <label for="validation5">Pincode<i class="red"> &#42</i></label>
               <input type="text" class="form-control" id="validation5" placeholder="462021" required="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+              <p class="red hide" id="error1">All &#42 field is mandatory</p>
+              <!-- <label for="validation4">Sex<i class="red"> &#42</i></label> -->
             </div>
           </div>
 
@@ -465,7 +580,7 @@
         <div class="formTitle border">Upload Admin Photo
           <div class="row no-margin headerDiv2 paddingBottom">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
-              <label for="validation1">select Admin Photo</label>
+              <label for="validation1">Select Admin Photo<i class="red"> &#42</i></label>
               <input type="file" class="form-control" id="validation1" value="" required="">
             </div>
           </div>
