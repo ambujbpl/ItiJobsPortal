@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Ambuj Dubey",
+    "role": "admin",
+    "log": "9753750955",
+    "pass": "11111"
+  },
+  {
+    "id": "2",
+    "name": "Rajesh Sharma",
+    "role": "student",
+    "log": "9753750966",
+    "pass": "22222"
+  },
+  {
+    "id": 3,
+    "name": "Kapil Tomar",
+    "role":"collage",
+    "log": "9753750977",
+    "pass": "33333"
+  },
+  {
+    "id": 4,
+    "name": "Lars Peterson",
+    "role": "company",
+    "log": "9753750988",
+    "pass": "44444"
+  }
+]
