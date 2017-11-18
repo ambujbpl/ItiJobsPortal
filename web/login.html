@@ -29,6 +29,25 @@
   .iti-fdoc {
       font-size: 9px !important;
   }
+  .form-control {
+    display: block;
+    width: 100%;
+     padding: 1px;
+     font-size: 8px;
+    line-height: 1;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
 }
 </style>
   <body>
@@ -47,7 +66,7 @@
             <a class="nav-link aboutIti" href="#">About ITI Jobs</a>
           </li>
           <li class="nav-item" name=1>
-            <a class="nav-link contactUs" href="#">Contact Us</a>
+            <a class="nav-link contactUs" href="#">Chat With Us</a>
           </li>
         </ul>
       </div>
@@ -82,7 +101,7 @@
                     <div class="iti-title">
                       <div id="iti-ftitle" class="iti-ftitle"></div>
                     </div>
-                    <p id="iti-fdoc" class="iti-fdoc"></p>
+                    <div id="iti-fdoc" class="iti-fdoc"></div>
                   </div>
                 </div>
                 <div class="carousel-item">
@@ -91,7 +110,7 @@
                     <div class="iti-title">
                       <div id="iti-ftitle" class="iti-ftitle"></div>
                     </div>
-                    <p id="iti-fdoc" class="iti-fdoc"></p>
+                    <div id="iti-fdoc" class="iti-fdoc"></div>
                   </div>
                 </div>
                 <div class="carousel-item">
@@ -100,7 +119,7 @@
                     <div class="iti-title">
                       <div id="iti-ftitle" class="iti-ftitle"></div>
                     </div>
-                    <p id="iti-fdoc" class="iti-fdoc"></p>
+                    <div id="iti-fdoc" class="iti-fdoc"></div>
                   </div>
                 </div>
               </div>
@@ -126,7 +145,7 @@
             <form id="signupForm" method="post" class="form-horizontal" action="">
               <div class="form-group form-groupcss has-feedback">
 
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email" />
+                <input type="text" class="form-control" id="email" name="email" placeholder="Mobile Number" />
               </div>
               <div class="form-group form-groupcss has-feedback">
                 <span class="fa fa-eye img" onmousedown="mDown()" onmouseup="mUp()" aria-hidden="true" name="password"></span>
@@ -154,7 +173,7 @@
       <!-- <div class="iti-title">Our Portal Reach</div> -->
       <div class="row margin-top no-padding">
 
-        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 iti-Padding5">
           <div class="iti-DivBod iti-Padding10 iti-DivCen">
             <img class="img-rounded" src="img/company.png" alt="Total Company image" width="65" height="65">
             <div class="total-css total-company">0</div>
@@ -162,7 +181,7 @@
           </div>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 iti-Padding5">
           <div class="iti-DivBod iti-Padding10 iti-DivCen">
             <img class="img-rounded" src="img/itiicon.png" alt="Total ITI image" width="65" height="65">
             <div class="total-css total-iti">0</div>
@@ -170,7 +189,7 @@
           </div>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 iti-Padding5">
           <div class="iti-DivBod iti-Padding10 iti-DivCen">
             <img class="img-rounded" src="img/student.png" alt="Total Student image" width="65" height="65">
             <div class="total-css total-student">0</div>
@@ -178,13 +197,13 @@
           </div>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
+        <!-- <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
           <div class="iti-DivBod iti-Padding10 iti-DivCen">
             <img class="img-rounded" src="img/placement.png" alt="Total Placement image" width="65" height="65">
             <div class="total-css total-placement">0</div>
             <div class="iti-stitle">Total Placements</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- /.row -->
     </div>

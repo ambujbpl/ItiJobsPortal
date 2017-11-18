@@ -1,12 +1,17 @@
+var x= '<div class="formTitle border iti-Padding5"><div class="row no-margin headerDiv2"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation1">Name<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation1" placeholder="Your Name" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Mobile<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Number" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Email<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Email" value="" required=""></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><label for="validation2">Message<i class="red"> &#42</i></label><textarea class="form-control" rows="2" id="comment" placeholder="Enter Your Message"></textarea></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><button type="submit" class="btn btn-primary btn-sm" name="signup" value="Sign up">Submit</button></div></div></div>';
 $(document).ready(function() {
   $(".contactUs").click(function() {
-    $('.iti-ftitle').html("Contact Us");
-    $('.iti-fdoc').html("ITI JOBS<br>Bhopal<br>Office Hours: 9AM-5PM Monday-Friday<br>Tel: 9753750955<br>Email: ambujdubey89@gmail.com");
+    $('.iti-ftitle').html("Chat With Us");
+    $('.carousel').carousel('pause');
+    $('.iti-fdoc').html(x);
   })
   $(".home").click(function() {
     $('.iti-ftitle').html("");
     $('.iti-fdoc').html("");
-    ss('displayNone');
+    $('.carousel').carousel({
+  interval: 10
+});
+    // ss('displayNone');
   });
   $(".aboutIti").click(function() {
     $('.iti-ftitle').html("About ITI Jobs");
