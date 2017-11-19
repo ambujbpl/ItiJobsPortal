@@ -1,3 +1,5 @@
+var login = storagegetItem("login");
+console.log(login);
 $(document).ready(function() {
   // for dashboard click function
   $('#dashboard').click(function() {
@@ -20,8 +22,18 @@ $(document).ready(function() {
   });
   // for dashboard click function
   $('.logout').click(function() {
-    $('.listComDetailsDiv').addClass('hide');
-    window.location.replace("login.html");
+    // $('.listComDetailsDiv').addClass('hide');
+    var obj = {};
+
+  $.when(Posthandler("/logout", obj, true)).done(function(res){console.log(res);
+  if(res.resCode === "OK"){
+    storageremoveItem("login");
+      window.location.replace("login.html");
+    }else{
+      console.log(res.msg+"else");
+window.location.replace("login.html");
+    }
+ }).fail(function() {swal("Error!",  "sorry unable to logout. please check your internet connection" , "error");});
   });
   // for add activeA class in comman list component in Navbar on-click function
   // $('.listCom').click(function() {
@@ -116,4 +128,3 @@ $("#menu-toggle").click(function(e) {
 //   }
 // });
 var x= '<div class="formTitle border iti-Padding5"><div class="row no-margin headerDiv2"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation1">Name<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation1" placeholder="Your Name" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Mobile<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Number" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Email<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Email" value="" required=""></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><label for="validation2">Message<i class="red"> &#42</i></label><textarea class="form-control" rows="2" id="comment" placeholder="Enter Your Message"></textarea></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><button type="submit" class="btn btn-primary btn-sm" name="signup" value="Sign up">Submit</button></div></div></div>';
- 
