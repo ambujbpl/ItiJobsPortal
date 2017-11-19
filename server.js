@@ -38,7 +38,7 @@ app.post('/login', function(req, res, next) {
   var y = req.body.password;
   // var z= {"name":"ambuj","pass":"12345"};
   console.log(x, ".................", y);
-  connection.query('SELECT * FROM login WHERE uname = "'+ x+'" and pass = "'+ y+'"', function (err, result,fields) {
+  connection.query('SELECT * FROM login WHERE uname = "'+ x+'" and pass = "'+ y+'"', function (err, result) {
     if (err) throw err;
     else{
       if(result != '')
