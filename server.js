@@ -38,13 +38,13 @@ app.post('/login', function(req, res, next) {
   var y = req.body.password;
   // var z= {"name":"ambuj","pass":"12345"};
   console.log(x, ".................", y);
-  connection.query('SELECT * FROM login WHERE uname = "'+ x+'"', function (err, result) {
+  connection.query('SELECT * FROM login WHERE uname = "'+ x+'" and pass = "'+ y+'"', function (err, result) {
     if (err) throw err;
     else{
       if(result != '')
       {
-        console.log(result.role);
-        return res.json({"resCode":"OK","msg":"Validation successful!","role":result});
+        console.log(result[0]);
+        return res.json({"resCode":"OK","msg":"Validation successful!","role":result[0].role,"name":result[0].name});
       }
       else
       {
@@ -53,6 +53,9 @@ app.post('/login', function(req, res, next) {
       }
     }
   });
-  // return res.json({"resCode":"OK","msg":"Validation successful!"});
   // next();
+});
+app.post("/logout", function(req, res){
+  // req.logout();
+  return res.json({"resCode":"OK","msg":"logging out"});
 });
