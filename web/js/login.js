@@ -121,9 +121,11 @@ function myFunction() {
     if (res.resCode == 'OK') {
       var role = res.role;
       var name = res.name;
+      var number = res.number;
       login = {
         "Role": role,
-        "Name": name
+        "Name": name,
+        "Number": number
       };
       storagesetItem("login", login);
       window.location.replace("dashboard.html");
