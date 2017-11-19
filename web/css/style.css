@@ -148,6 +148,7 @@
 }*/
 
 /*for SignUp form css */
+
 .login-page {
   background-color: #f1f1f1 !important;
 }
@@ -214,42 +215,185 @@
 .radioSex {
   padding-top: 10px;
 }
-.red{
+
+.red {
   color: red;
 }
 
 /*text animation css*/
-.textErrorDiv{
+
+.textErrorDiv {
   position: relative;
   width: 100%;
   min-height: 20px;
   overflow-x: hidden;
 }
-.textError{
+
+.textError {
   font-size: 12px;
-  margin:0 0 0 0;
+  margin: 0 0 0 0;
   width: -moz-fit-content;
   width: fit-content;
   /*height: 10%;*/
-    position: absolute;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    animation-name: example;
-    /*animation-duration: 4s;
+  position: absolute;
+  -webkit-animation-name: example;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  /*animation-duration: 4s;
   animation-iteration-count: infinite;*/
-    -webkit-animation: mymove 10s infinite; /* Safari 4.0 - 8.0 */
-    animation: mymove 10s infinite;
+  -webkit-animation: mymove 10s infinite;
+  /* Safari 4.0 - 8.0 */
+  animation: mymove 10s infinite;
 }
-.textError {-webkit-animation-timing-function: ease-in-out;}
-.textError {animation-timing-function: ease-in-out;}
+
+.textError {
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.textError {
+  animation-timing-function: ease-in-out;
+}
+
 /* Safari 4.0 - 8.0 */
+
 @-webkit-keyframes mymove {
-    from {left: 0px;}
-    to {left: 100%;}
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%;
+  }
 }
 
 /* Standard syntax */
+
 @keyframes mymove {
-from {left: 0px;}
-to {left: 100%;}
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/*......................................................
+  {Deshboard.Css Its used for all deshboard related css}
+  ......................................................*/
+
+.myNavbar1 {
+  position: relative;
+  min-height: 50px;
+  /* margin-bottom: 20px !important; */
+}
+
+.myDeshboardContainerCss {
+  min-height: 570px !important;
+}
+
+.container-fluid {
+  padding: 0px!important;
+}
+
+.mainDiv {
+  background-color: #f1f1f1 !important;
+  padding: 10px !important;
+}
+
+.page-header {
+  font-size: 25px;
+  margin: 15px 0px;
+}
+
+.username{
+  font-size: 18px;
+}
+
+.myCard {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.img-circle {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+  display: block;
+}
+
+.nav-header {
+  padding: 33px 25px;
+  background-color: #2f4050;
+}
+
+.nav-header a {
+  color: #DFE4ED;
+}
+
+.nav-item a {
+  color: rgba(255, 255, 255, .5);
+}
+
+.nav-item a:hover {
+  color: #DFE4ED;
+}
+
+.activeA {
+  color: #DFE4ED !important;
+  background-color: #292b2c;
+}
+
+.myTable {
+  border: 1px solid #ccc;
+  padding: 5px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-linkImage:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.listCom:hover {
+  cursor: pointer;
+}
+
+.iti-DivCen {
+  background-color: #f1f1f1;
+}
+
+.animated {
+  min-width: 100px !important;
+}
+
+.btnPara {
+  padding: 0px !important;
+}
+
+.iti-DivCenD {
+  padding: 10px !important;
+}
+
+.anchLegend {
+  border-bottom: 1px solid #ccc;
+}
+
+.total-cssD {
+  text-align: center;
+  font-size: 20px;
+}
+
+.myTableCss {
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+.myTableCss th {
+  text-align: center !important;
 }

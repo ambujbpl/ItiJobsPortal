@@ -12,108 +12,12 @@
 
   <title>ITI Jobs Home</title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap 4 core CSS -->
   <link href="static/css/bootstrap.min.css" rel="stylesheet">
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/sweetalert.css" />
-  <link rel="stylesheet" href="css/login.css">
-  <style type="text/css">
-    .myNavbar1 {
-      position: relative;
-      min-height: 50px;
-      /* margin-bottom: 20px !important; */
-    }
-.myDeshboardContainerCss{
-  min-height: 570px !important;
-}
-    .container-fluid {
-      padding: 0px!important;
-    }
-
-    .mainDiv {
-      background-color: #f1f1f1 !important;
-      padding: 10px !important;
-    }
-
-    .page-header {
-      font-size: 25px;
-      margin: 15px 0px;
-    }
-
-    .myCard {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 5px;
-      margin-top: 10px;
-    }
-
-    .img-circle {
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      vertical-align: middle;
-      display: block;
-    }
-
-    .nav-header {
-      padding: 33px 25px;
-      background-color: #2f4050;
-    }
-    .nav-header a {
-    color: #DFE4ED;
-}
-.nav-item a{
-    color: rgba(255,255,255,.5);
-}
-.nav-item a:hover{
-    color: #DFE4ED;
-}
-.activeA{
-    color: #DFE4ED !important;
-    background-color: #292b2c;
-}
-.myTable{
-  border: 1px solid #ccc;
-  padding: 5px;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-.nav-linkImage:hover{
-  background-color: red;
-  cursor: pointer;
-}
-.listCom:hover{
-  cursor: pointer;
-}
-.iti-DivCen{
-  background-color: #f1f1f1;
-}
-.animated{
-  min-width: 100px  !important;
-}
-.btnPara{
-  padding: 0px !important;
-}
-.iti-DivCenD{
-  padding: 10px !important;
-}
-.anchLegend{
-  border-bottom: 1px solid #ccc;
-}
-.total-cssD {
-    text-align: center;
-     font-size: 20px;
-}
-.myTableCss{
-  font-size: 12px !important;
-  text-align: center !important;
-}
-.myTableCss th{
-  text-align: center !important;
-}
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -135,60 +39,12 @@
 
   <div class="container-fluid">
     <div class="row no-padding no-margin myDeshboardContainerCss">
-      <nav class="d-none d-sm-none d-md-block col-sm-0 col-md-2 col-lg-2 col-xl-2 d-xs-none no-padding navbar-inverse bg-inverse">
-        <ul class="nav nav-pills flex-column">
-          <li class="nav-header">
-            <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/ambujImage.jpg">
-                             </span>
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Ambuj Dubey</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
-              <ul class="dropdown-menu animated fadeInRight list-group-item-danger">
-                <li><a id="profile" class="nav-link nav-linkImage profile" data-toggle="modal" data-target="#exampleModalLong">Profile</a></li>
-                <li><a id="help" class="nav-link nav-linkImage help" data-toggle="modal" data-target="#exampleModalLong">Help</a></li>
-                <!-- <li><a href="mailbox.html">Mailbox</a></li> -->
-                <li class="divider"></li>
-                <li><a id="logout" class="nav-link nav-linkImage logout">Logout</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link home listComA activeA" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link anch1 listComA" href="#">Total Companies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link anch2 listComA" href="#">Total ITI Listed</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link anch3 listComA" href="#">Total Students</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link anch4 listComA" href="#">Total Placements</a>
-          </li> -->
-        </ul>
-      </nav>
-
-      <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xs-12 mainDiv">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 mainDiv">
         <div id="page-header" class="page-header">Dashboard</div>
-        <div class="myCard listComDetailsDiv hide">
-          <div class="row no-margin no-padding">
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 no-padding">
-              <p class="listComDetailsPara">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies, metus eget fringilla fermentum, sem justo pulvinar tellus, ac varius neque ante eget mi. Donec cursus nibh ultrices vulputate aliquet. Morbi nulla enim, molestie
-                eu ullamcorper quis, placerat a mauris. Proin vel magna ullamcorper, vulputate leo eu, egestas odio. Vivamus erat leo, egestas in euismod sed, fermentum nec magna. Nunc nisi enim, euismod a tellus sit amet, fermentum adipiscing ipsum.
-                Fusce rhoncus diam ac neque aliquam convallis. Etiam malesuada, nibh id rutrum euismod, enim augue gravida dolor, at vulputate felis mi at magna. Nulla luctus, libero eget luctus gravida, sapien enim varius massa, adipiscing aliquet lacus
-                mi eu eros. Duis pretium laoreet ullamcorper. Aenean in mauris nec libero tincidunt pharetra non et dui. Sed tortor turpis, mollis et tempus eu, auctor laoreet neque. Etiam eu tortor rutrum, rutrum mauris sit amet, hendrerit augue. Sed
-                ut tincidunt nisi. Nam consectetur velit ac pharetra venenatis.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        
         <div class="myCard">
-          <div class="row no-margin no-padding">
-            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
+          <div id="insertMyCard" class="row no-margin no-padding justify-content-around">
+            <!-- <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
               <div class="iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD">
                 <img class="img-rounded borderImage" src="img/company.png" alt="Total Company image" width="65" height="65">
                 <div class="total-cssD total-company">0</div>
@@ -212,15 +68,6 @@
                 <div class="total-cssD total-student">0</div>
                 <div class="iti-dtitle">Total Students</div>
                 <p class="no-margin no-padding"><a class="anch3 btn btn btn-secondary listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-            </div>
-            <!-- <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
-              <div class="iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD">
-                <img class="img-rounded borderImage" src="img/placement.png" alt="Total Placement image" width="65" height="65">
-                <div class="total-cssD total-placement">0</div>
-                <div class="iti-dtitle">Total Placements</div>
-                <p class="no-margin no-padding"><a class="anch4 btn btn btn-secondary listComA" role="button">View details &raquo;</a></p>
 
               </div>
             </div> -->
@@ -248,122 +95,9 @@
                     <th class="headerName">Name</th>
                     <th class="headerArea">Area</th>
                     <th class="headerDetails">Details</th>
-                    <!-- <th>Header</th> -->
                   </tr>
                 </thead>
                 <tbody id="tableBody">
-                  <!-- <tr>
-                    <td>1,001</td>
-                    <td>Lorem</td>
-                    <td>ipsum</td>
-                    <td>dolor</td>
-                    <td>sit</td>
-                  </tr>
-                  <tr>
-                    <td>1,002</td>
-                    <td>amet</td>
-                    <td>consectetur</td>
-                    <td>adipiscing</td>
-                    <td>elit</td>
-                  </tr>
-                  <tr>
-                    <td>1,003</td>
-                    <td>Integer</td>
-                    <td>nec</td>
-                    <td>odio</td>
-                    <td>Praesent</td>
-                  </tr>
-                  <tr>
-                    <td>1,003</td>
-                    <td>libero</td>
-                    <td>Sed</td>
-                    <td>cursus</td>
-                    <td>ante</td>
-                  </tr>
-                  <tr>
-                    <td>1,004</td>
-                    <td>dapibus</td>
-                    <td>diam</td>
-                    <td>Sed</td>
-                    <td>nisi</td>
-                  </tr>
-                  <tr>
-                    <td>1,005</td>
-                    <td>Nulla</td>
-                    <td>quis</td>
-                    <td>sem</td>
-                    <td>at</td>
-                  </tr>
-                  <tr>
-                    <td>1,006</td>
-                    <td>nibh</td>
-                    <td>elementum</td>
-                    <td>imperdiet</td>
-                    <td>Duis</td>
-                  </tr>
-                  <tr>
-                    <td>1,007</td>
-                    <td>sagittis</td>
-                    <td>ipsum</td>
-                    <td>Praesent</td>
-                    <td>mauris</td>
-                  </tr>
-                  <tr>
-                    <td>1,008</td>
-                    <td>Fusce</td>
-                    <td>nec</td>
-                    <td>tellus</td>
-                    <td>sed</td>
-                  </tr>
-                  <tr>
-                    <td>1,009</td>
-                    <td>augue</td>
-                    <td>semper</td>
-                    <td>porta</td>
-                    <td>Mauris</td>
-                  </tr>
-                  <tr>
-                    <td>1,010</td>
-                    <td>massa</td>
-                    <td>Vestibulum</td>
-                    <td>lacinia</td>
-                    <td>arcu</td>
-                  </tr>
-                  <tr>
-                    <td>1,011</td>
-                    <td>eget</td>
-                    <td>nulla</td>
-                    <td>Class</td>
-                    <td>aptent</td>
-                  </tr>
-                  <tr>
-                    <td>1,012</td>
-                    <td>taciti</td>
-                    <td>sociosqu</td>
-                    <td>ad</td>
-                    <td>litora</td>
-                  </tr>
-                  <tr>
-                    <td>1,013</td>
-                    <td>torquent</td>
-                    <td>per</td>
-                    <td>conubia</td>
-                    <td>nostra</td>
-                  </tr>
-                  <tr>
-                    <td>1,014</td>
-                    <td>per</td>
-                    <td>inceptos</td>
-                    <td>himenaeos</td>
-                    <td>Curabitur</td>
-                  </tr>
-                  <tr>
-                    <td>1,015</td>
-                    <td>sodales</td>
-                    <td>ligula</td>
-                    <td>in</td>
-                    <td>libero</td>
-                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -399,7 +133,6 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -409,154 +142,16 @@
     </div>
   </div>
 
-  <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand activeB" href="#">ITI Jobs Portal</a>
-        <span class="navbar-brand dashboardName activeB">Ambuj Dubey</span>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a id="dashboard" class="dashboard listCom activeA">Dashboard</a></li>
-          <li><a id="help" class="help listCom">Help</a></li>
-          <li><a id="profile" class="profile listCom">Profile</a></li>
-          <li><a id="logout" class="logout listCom">Logout</a></li>
-        </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
-      </div>
-    </div>
-  </nav> -->
-
-  <!-- Sidebar -->
-  <!-- <div id="wrapper">
-    <div id="sidebar-wrapper">
-      <nav id="spy">
-        <ul class="sidebar-nav nav">
-          <li class="sidebar-brand">
-            <a class="home listComA activeA">Home</a>
-          </li>
-          <li>
-            <a class="anch1 listComA" data-scroll>Total Companies</a>
-          </li>
-          <li>
-            <a class="anch2 listComA" data-scroll>Total ITI Listed</a>
-          </li>
-          <li>
-            <a class="anch3 listComA" data-scroll>Total Students</a>
-          </li>
-          <li>
-            <a class="anch4 listComA" data-scroll>Total Placements</a>
-          </li>
-        </ul>
-      </nav>
-    </div> -->
-
-  <!-- Page content -->
-  <!-- <div id="page-content-wrapper">
-      <div class="content-header">
-        <div id="home" class="contentHeaderDivCss">
-          <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
-                            <i class="fa fa-bars"></i>
-                        </a>
-          <div id="page-header" class="page-header">Dashboard</div>
-        </div>
-      </div>
-
-      <div class="page-content inset" data-spy="scroll" data-target="#spy">
-
-        <div class="row hide listComDetailsDiv">
-          <div class="col-md-12 well">
-            <p class="listComDetailsPara">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies, metus eget fringilla fermentum, sem justo pulvinar tellus, ac varius neque ante eget mi. Donec cursus nibh ultrices vulputate aliquet. Morbi nulla enim, molestie eu
-              ullamcorper quis, placerat a mauris. Proin vel magna ullamcorper, vulputate leo eu, egestas odio. Vivamus erat leo, egestas in euismod sed, fermentum nec magna. Nunc nisi enim, euismod a tellus sit amet, fermentum adipiscing ipsum. Fusce
-              rhoncus diam ac neque aliquam convallis. Etiam malesuada, nibh id rutrum euismod, enim augue gravida dolor, at vulputate felis mi at magna. Nulla luctus, libero eget luctus gravida, sapien enim varius massa, adipiscing aliquet lacus mi eu
-              eros. Duis pretium laoreet ullamcorper. Aenean in mauris nec libero tincidunt pharetra non et dui. Sed tortor turpis, mollis et tempus eu, auctor laoreet neque. Etiam eu tortor rutrum, rutrum mauris sit amet, hendrerit augue. Sed ut tincidunt
-              nisi. Nam consectetur velit ac pharetra venenatis.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="row">
-
-          <div class="jumbotron text-center">
-            <div class="row placeholders no-margin no-padding">
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img class="img-rounded borderImage" src="img/company.png" alt="Total Company image" width="85" height="85">
-                <div class="total-css total-company">0</div>
-                <div class="iti-dtitle">Total Companies</div>
-                <p><a class="anch1 btn btn btn-default listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img class="img-rounded borderImage" src="img/itiicon.png" alt="Total ITI image" width="85" height="85">
-                <div class="total-css total-iti">0</div>
-                <div class="iti-dtitle">Total ITI Listed</div>
-                <p><a class="anch2 btn btn btn-default listComA" role="button">View details &raquo;</a></p>
-
-
-              </div>
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img class="img-rounded borderImage" src="img/student.png" alt="Total Student image" width="85" height="85">
-                <div class="total-css total-student">0</div>
-                <div class="iti-dtitle">Total Students</div>
-                <p><a class="anch3 btn btn btn-default listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img class="img-rounded borderImage" src="img/placement.png" alt="Total Placement image" width="85" height="85">
-                <div class="total-css total-placement">0</div>
-                <div class="iti-dtitle">Total Placements</div>
-                <p><a class="anch4 btn btn btn-default listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-        <div class="row hide viewDetailsDiv">
-          <div class="col-md-12 well">
-            <legend class="anchLegend">Anchor 1</legend>
-            <p class="anchPara">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies, metus eget fringilla fermentum, sem justo pulvinar tellus, ac varius neque ante eget mi. Donec cursus nibh ultrices vulputate aliquet. Morbi nulla enim, molestie eu
-              ullamcorper quis, placerat a mauris. Proin vel magna ullamcorper, vulputate leo eu, egestas odio. Vivamus erat leo, egestas in euismod sed, fermentum nec magna. Nunc nisi enim, euismod a tellus sit amet, fermentum adipiscing ipsum. Fusce
-              rhoncus diam ac neque aliquam convallis. Etiam malesuada, nibh id rutrum euismod, enim augue gravida dolor, at vulputate felis mi at magna. Nulla luctus, libero eget luctus gravida, sapien enim varius massa, adipiscing aliquet lacus mi eu
-              eros. Duis pretium laoreet ullamcorper. Aenean in mauris nec libero tincidunt pharetra non et dui. Sed tortor turpis, mollis et tempus eu, auctor laoreet neque. Etiam eu tortor rutrum, rutrum mauris sit amet, hendrerit augue. Sed ut tincidunt
-              nisi. Nam consectetur velit ac pharetra venenatis.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="navbar navbar-default navbar-static-bottom">
-          <p class="navbar-text pull-left">
-            Built by <a href="#" target="_blank">Ambuj Dubey</a> <span>All Rights Reserved, &copy; 2017 ITI JOBS</span>
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div> -->
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="static/js/jquery.validate.js"></script>
   <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/sweetalert.min.js"></script>
-  <script src="js/storage.js"></script>
-  <script src="js/ajaxHandler.js"></script></head>
+  <script type="text/javascript" src="static/js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="js/storage.js"></script>
+  <script type="text/javascript" src="js/ajaxHandler.js"></script>
+  </head>
   <script type="text/javascript" src="js/dashboard.js"></script>
 
 </body>

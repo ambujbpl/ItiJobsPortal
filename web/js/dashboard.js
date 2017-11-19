@@ -1,10 +1,23 @@
-var login = storagegetItem("login");
-console.log(login);
 $(document).ready(function() {
+  // initial loading script role wise dynamic append
+  var login = storagegetItem("login");
+  console.log(login);
+  var uname = login.Name;
+  var unumber = login.Number;
+  var urole = login.Role;
+  $('.page-header').html("<div>" + urole + " - <span class='username'>" + uname + "</span></div>");
+  if (login.Role == 'Admin') {
+    $('#insertMyCard').append(admMyCard);
+  } else if (login.Role == 'Company') {
+    $('#insertMyCard').append(camMyCard);
+  } else if (login.Role == 'College') {
+    $('#insertMyCard').append(colMyCard);
+  } else if (login.Role == 'Student') {
+    $('#insertMyCard').append(stuMyCard);
+  }
   // for dashboard click function
   $('#dashboard').click(function() {
-    $('.page-header').html("Dashboard");
-    // $('.listComDetailsDiv').addClass('hide');
+    $('.viewDetailsDiv').addClass('hide');
   });
   // for help click function open modal
   $('.help').click(function() {
@@ -17,7 +30,7 @@ $(document).ready(function() {
   $('.profile').click(function() {
     $('#exampleModalLongTitle').html("Profile");
     // $('.listComDetailsDiv').removeClass('hide');
-    $('.modal-body').html("<div style='text-align: center';><img src='img/ambujImage.jpg' style='border-radius: 50%' alt='Profile Image' height='102' width='102'><br><br><table class='myTable table-striped table-bordered'><tr><td>Name</td><td>Ambuj Dubey</td></tr><tr><td>Mobile Number</td><td>9753750955</td></tr><tr><td>Role</td><td>Admin</td></tr><tr><td>Email ID</td><td>ambujdubey89@gmail.com</td></tr><table></div>");
+    $('.modal-body').html("<div style='text-align: center';><img src='img/student.png' style='border-radius: 50%' alt='Profile Image' height='102' width='102'><br><br><table class='myTable table-striped table-bordered'><tr><td>Name</td><td>" + uname + "</td></tr><tr><td>Number</td><td>" + unumber + "</td></tr><tr><td>Role</td><td>" + urole + "</td></tr><table></div>");
 
   });
   // for dashboard click function
@@ -25,15 +38,18 @@ $(document).ready(function() {
     // $('.listComDetailsDiv').addClass('hide');
     var obj = {};
 
-  $.when(Posthandler("/logout", obj, true)).done(function(res){console.log(res);
-  if(res.resCode === "OK"){
-    storageremoveItem("login");
-      window.location.replace("login.html");
-    }else{
-      console.log(res.msg+"else");
-window.location.replace("login.html");
-    }
- }).fail(function() {swal("Error!",  "sorry unable to logout. please check your internet connection" , "error");});
+    $.when(Posthandler("/logout", obj, true)).done(function(res) {
+      console.log(res);
+      if (res.resCode === "OK") {
+        storageremoveItem("login");
+        window.location.replace("login.html");
+      } else {
+        console.log(res.msg + "else");
+        window.location.replace("login.html");
+      }
+    }).fail(function() {
+      swal("Error!", "sorry unable to logout. please check your internet connection", "error");
+    });
   });
   // for add activeA class in comman list component in Navbar on-click function
   // $('.listCom').click(function() {
@@ -51,10 +67,10 @@ window.location.replace("login.html");
   $('.anch1').click(function() {
     $('.anchLegend').html("Total Companies");
     $('.anchPara').html("We have registered more then 30 company.<br>Some of them are below.");
-$('.headerId').html("company ID");
-$('.headerName').html("company Name");
-$('.headerArea').html("company Location");
-$('.headerDetails').html("Year of Establishment");
+    $('.headerId').html("company ID");
+    $('.headerName').html("company Name");
+    $('.headerArea').html("company Location");
+    $('.headerDetails').html("Year of Establishment");
     $('#tableBody').html("<tr><td>1,001</td><td>Aakash India Pvt Ltd</td><td>Bhopal</td><td>2011</td></tr><tr><td>1,002</td><td>Raj industries</td><td>Bhopal</td><td>1989</td></tr><tr><td>1,003</td><td>Vijay construction</td><td>Vidish</td><td>2007</td></tr><tr><td>1,004</td><td>Malvin India</td><td>Jabalpur</td><td>2017</td></tr><tr><td>1,005</td><td>Shiva industries</td><td>Indore</td><td>2015</td></tr>");
   });
   // for Sidebar anch2 click function
@@ -90,41 +106,15 @@ $('.headerDetails').html("Year of Establishment");
     $('#tableBody').html("<tr><td>4,001</td><td>Anita</td><td>Bhopal</td><td>Diploma</td></tr><tr><td>4,002</td><td>Rishabh</td><td>Indore</td><td>PG-Diploma</td></tr><tr><td>4,003</td><td>Ajay</td><td>Vidish</td><td>PG-Diploma</td></tr><tr><td>4,004</td><td>Ravi</td><td>Jabalpur</td><td>ITI</td></tr><tr><td>4,005</td><td>Shivendra</td><td>Indore</td><td>12th</td></tr>");
 
   });
-  // for Sidebar Home click function
-  $('.home').click(function() {
-    $('.viewDetailsDiv').addClass('hide');
-    $('.listComDetailsDiv').addClass('hide');
-  });
+
 });
 
+var x = '<div class="formTitle border iti-Padding5"><div class="row no-margin headerDiv2"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation1">Name<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation1" placeholder="Your Name" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Mobile<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Number" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Email<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Email" value="" required=""></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><label for="validation2">Message<i class="red"> &#42</i></label><textarea class="form-control" rows="2" id="comment" placeholder="Enter Your Message"></textarea></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><button type="submit" class="btn btn-primary btn-sm" name="signup" value="Sign up">Submit</button></div></div></div>';
 
+var admMyCard = "<div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/aboutMe.jpg' alt='About Me image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>About Me</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/company.png' alt='Total Company image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total Companies</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/itiicon.png' alt='Total ITI image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total ITI Listed</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/student.png' alt='Total Students image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total Students</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div>";
 
+var camMyCard = "<div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/aboutMe.jpg' alt='About Me image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>About Me</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/itiicon.png' alt='Total ITI image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total ITI Listed</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/student.png' alt='Total Students image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total Students</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div>";
 
-// js  code for sidebar
-/*Menu-toggle*/
-$("#menu-toggle").click(function(e) {
-  e.preventDefault();
-  $("#wrapper").toggleClass("active");
-});
-//
-// /*Scroll Spy*/
-// $('body').scrollspy({
-//   target: '#spy',
-//   offset: 80
-// });
+var colMyCard = "<div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/aboutMe.jpg' alt='About Me image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>About Me</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/company.png' alt='Total Company image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total Companies</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/student.png' alt='Total Students image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total Students</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div>";
 
-/*Smooth link animation*/
-// $('a[href*=#]:not([href=#])').click(function() {
-//   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-//
-//     var target = $(this.hash);
-//     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-//     if (target.length) {
-//       $('html,body').animate({
-//         scrollTop: target.offset().top
-//       }, 1000);
-//       return false;
-//     }
-//   }
-// });
-var x= '<div class="formTitle border iti-Padding5"><div class="row no-margin headerDiv2"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation1">Name<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation1" placeholder="Your Name" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Mobile<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Number" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Email<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Email" value="" required=""></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><label for="validation2">Message<i class="red"> &#42</i></label><textarea class="form-control" rows="2" id="comment" placeholder="Enter Your Message"></textarea></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><button type="submit" class="btn btn-primary btn-sm" name="signup" value="Sign up">Submit</button></div></div></div>';
+var stuMyCard = "<div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/aboutMe.jpg' alt='About Me image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>About Me</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div><div class='col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5'><div class='iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD'><img class='img-rounded borderImage' src='img/company.png' alt='Total Company image' width='65' height='65'><div class='total-cssD total-company'>0</div><div class='iti-dtitle'>Total Companies</div><p class='no-margin no-padding'><a class='anch1 btn btn btn-secondary listComA' role='button'>View details &raquo;</a></p></div></div>";
