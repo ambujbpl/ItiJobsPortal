@@ -8,9 +8,8 @@ $(document).ready(function() {
     $('.iti-ftitle').html("");
     $('.iti-fdoc').html("");
     $('.carousel').carousel({
-  interval: 10
-});
-    // ss('displayNone');
+      interval: 10
+    });
   });
   $(".aboutIti").click(function() {
     $('.iti-ftitle').html("About ITI Jobs");
@@ -32,7 +31,6 @@ $(document).ready(function() {
   /* Password Image settings*/
   $('.img').addClass('hide');
   $('#password').hover(function() {
-    // alert("TEST");
     $('.img').removeClass('hide');
   }, function() {
     $('.img').addClass('hide');
@@ -44,7 +42,6 @@ $(document).ready(function() {
   });
 
   // Validation
-
   $.validator.addMethod("pwcheckspechars", function(value) {
     return /[!@#$%^&*()_=\[\]{};':"\\|,.<>\/?+-]/.test(value)
   });
@@ -64,14 +61,12 @@ $(document).ready(function() {
         required: true,
         minlength: 5,
         maxlength: 12,
-        // pwcheckspechars: true,
-        // pwchecknumber: true
       },
 
     },
     messages: {
       mobi: {
-        required:"Please enter Your Mobile Number",
+        required: "Please enter Your Mobile Number",
         digits: "Please enter a valid Mobile Number",
         minlength: "Please put 10  digit mobile number",
         maxlength: "Please put 10  digit mobile number"
@@ -80,8 +75,6 @@ $(document).ready(function() {
         required: "Please provide a password",
         minlength: "Your password must be at least 5 characters long",
         maxlength: "Your password must be at most 12 characters long",
-        // pwchecknumber: "The password must contain at least one number",
-        // pwcheckspechars: "at 1 Special Character required"
       },
 
     },
@@ -118,48 +111,29 @@ function myFunction() {
   var pas1 = document.getElementById("password").value;
   var encodePass = btoa(pas1).toString();
   var decodedString = atob(encodePass);
-  // console.log(decodedString);
-  // console.log(encodePass);
   var obj = {
     "username": em1,
     "password": decodedString
   };
   console.log(obj);
-  $.ajax({
-    url: "/login",
-    type: "POST",
-    data: JSON.stringify(obj),
-
-    dataType: "json",
-    contentType: "application/json; charset=utf-8",
-    success: function(res) {
-      console.log(res.resCode);
-      if (res.resCode == 'OK') {
-        console.log(res.msg);
-        alert(res.msg);
-        var tok = res.token;
-        var role = res.role_id;
-        var name = res.emp_name;
-        login = {
-          "Tokan": tok,
-          "Role": role,
-          "Name": name
-        };
-        // storagesetItem("login", login);
-        window.location.replace("dashboard.html");
-      } else if (res.resCode == 'Error'){
-        console.log(res.msg);
-        swal("Error!", res.msg, "error");
-      }
-
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {
-      swal("Error!", "sorry unable to login. please check your internet connection", "error");
-      // console.log("fail login");
+  $.when(Posthandler("/login", obj, true)).done(function(res) {
+    console.log(res);
+    if (res.resCode == 'OK') {
+      var role = res.role;
+      var name = res.name;
+      login = {
+        "Role": role,
+        "Name": name
+      };
+      storagesetItem("login", login);
+      window.location.replace("dashboard.html");
+    } else if (res.resCode == 'Error') {
+      console.log(res.msg);
+      swal("Error!", res.msg, "error");
     }
-
+  }).fail(function() {
+    swal("Error!", "sorry unable to LogIn. please check your internet connection", "error");
   });
-  // window.location.replace("dashboard.html");
 }
 
 $.validator.setDefaults({
@@ -168,4 +142,4 @@ $.validator.setDefaults({
   }
 });
 
-var x= '<div class="formTitle border iti-Padding5"><div class="row no-margin headerDiv2"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation1">Name<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation1" placeholder="Your Name" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Mobile<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Number" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Email<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Email" value="" required=""></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><label for="validation2">Message<i class="red"> &#42</i></label><textarea class="form-control" rows="2" id="comment" placeholder="Enter Your Message"></textarea></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><button type="submit" class="btn btn-primary btn-sm" name="signup" value="Sign up">Submit</button></div></div></div>';
+var x = '<div class="formTitle border iti-Padding5"><div class="row no-margin headerDiv2"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation1">Name<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation1" placeholder="Your Name" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Mobile<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Number" value="" required=""></div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding"><label for="validation2">Email<i class="red"> &#42</i></label><input type="text" class="form-control" id="validation2" placeholder="Your Email" value="" required=""></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><label for="validation2">Message<i class="red"> &#42</i></label><textarea class="form-control" rows="2" id="comment" placeholder="Enter Your Message"></textarea></div><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"><button type="submit" class="btn btn-primary btn-sm" name="signup" value="Sign up">Submit</button></div></div></div>';

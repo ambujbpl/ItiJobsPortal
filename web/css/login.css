@@ -146,3 +146,110 @@
 /*.carousel-inner{
   max-height: 280px;
 }*/
+
+/*for SignUp form css */
+.login-page {
+  background-color: #f1f1f1 !important;
+}
+
+.containerCss {
+  background-color: #fff !important;
+  margin-bottom: 5px;
+}
+
+.border {
+  border: 1px solid #A2A2A2 !important;
+}
+
+.backgroundColor {
+  background-color: #f1f1f1 !important;
+}
+
+.headerDiv1 {
+  text-align: center;
+  font-size: 24;
+  margin: 10px 0px;
+}
+
+.headerDiv2 {
+  /*text-align: center;*/
+  font-size: 15;
+  background-color: #CAC8C8;
+  padding: 0px 10px;
+}
+
+.headerDiv3 {
+  /*text-align: center;*/
+  font-size: 10;
+  background-color: blue;
+  padding: 2px 10px;
+}
+
+.formTitle {
+  font-size: 14px !important;
+  padding: 5px;
+  margin: 0px 0px;
+}
+
+.marginBottom {
+  margin-bottom: 5px;
+}
+
+.paddingBottom {
+  padding-bottom: 5px !important;
+}
+
+.registration {
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registrationDiv {
+  /*padding-top: 10px;*/
+  display: inline-block;
+}
+
+.radioSex {
+  padding-top: 10px;
+}
+.red{
+  color: red;
+}
+
+/*text animation css*/
+.textErrorDiv{
+  position: relative;
+  width: 100%;
+  min-height: 20px;
+  overflow-x: hidden;
+}
+.textError{
+  font-size: 12px;
+  margin:0 0 0 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  /*height: 10%;*/
+    position: absolute;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    /*animation-duration: 4s;
+  animation-iteration-count: infinite;*/
+    -webkit-animation: mymove 10s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 10s infinite;
+}
+.textError {-webkit-animation-timing-function: ease-in-out;}
+.textError {animation-timing-function: ease-in-out;}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 100%;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+from {left: 0px;}
+to {left: 100%;}
+}
