@@ -22,9 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.set('view engine', 'html');
-// app.use(express.static(path.join(__dirname, '../web')));
 app.use(express.static(path.join(__dirname, './web')));
-// console.log(__dirname,'./web/login.html');
 app.get('/', function(req, res) {
   res.sendFile(__dirname + "/web/" + "login.html");
 });
@@ -33,10 +31,8 @@ app.listen(8000, function(req, res) {
 });
 
 app.post('/login', function(req, res, next) {
-  // app.use(express.bodyParser.json());
   var x = req.body.username;
   var y = req.body.password;
-  // var z= {"name":"ambuj","pass":"12345"};
   console.log(x, ".................", y);
   connection.query('SELECT * FROM login WHERE uname = "'+ x+'" and pass = "'+ y+'"', function (err, result) {
     if (err) throw err;
@@ -44,18 +40,16 @@ app.post('/login', function(req, res, next) {
       if(result != '')
       {
         console.log(result[0]);
-        return res.json({"resCode":"OK","msg":"Validation successful!","role":result[0].role,"name":result[0].name});
+        return res.json({"resCode":"OK","msg":"Validation successful!","role":result[0].role,"name":result[0].name,"number":result[0].uname});
       }
       else
       {
-        console.log("empty");
         return res.json({"resCode":"Error","msg":"User Not Valid!"});
       }
     }
   });
-  // next();
 });
+
 app.post("/logout", function(req, res){
-  // req.logout();
   return res.json({"resCode":"OK","msg":"logging out"});
 });
