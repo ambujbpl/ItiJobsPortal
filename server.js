@@ -109,6 +109,47 @@ app.post("/newAdmin", function(req, res) {
   });
 });
 
+app.post("/newStudent", function(req, res) {
+  console.log(req.body);
+  connection.query('SELECT * FROM login WHERE uname = "' + req.body.Mobile + '"', function(err, result) {
+    if (err) throw err;
+    else {
+      if (result == '') {
+        connection.query('SELECT * FROM student WHERE Name = "' + req.body.Name + '" AND ( City = "' + req.body.City + '" OR Pincode = "' + req.body.Pincode + '")', function(err, result1) {
+          if (err) throw err;
+          else {
+            if (result1 != '') {
+              console.log(result1);
+              return res.json({
+                "resCode": "Error",
+                "msg": "User Already Register"
+              });
+            } else {
+              connection.query('INSERT INTO student SET ?', req.body, function(err, result2) {
+                if (err) throw err;
+                else {
+                  connection.query('INSERT INTO login VALUES( "Student","' + req.body.Mobile + '", "12345", "' + req.body.Name + '")', function(err, result3) {
+                    return res.json({
+                      "resCode": "OK",
+                      "msg": "New Student Register"
+                    });
+                  });
+                }
+              });
+            }
+          }
+        });
+
+      } else {
+        return res.json({
+          "resCode": "Error",
+          "msg": "Mobile Number Already Register"
+        });
+      }
+    }
+  });
+});
+
 // connection.end(function(err, data){
 //   if (err) {
 //     console.log(err);
