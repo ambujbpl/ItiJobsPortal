@@ -5,6 +5,11 @@ $(document).ready(function() {
   var uname = login.Name;
   var unumber = login.Number;
   var urole = login.Role;
+  if (urole == "Admin") {
+    $('.addNewUser').removeClass('hide');
+  } else {
+    $('.addNewUser').addClass('hide');
+  }
   $('.page-header').html("<div>" + urole + " - <span class='username'>" + uname + "</span></div>");
   if (login.Role == 'Admin') {
     $('#insertMyCard').append(admMyCard);
@@ -18,6 +23,10 @@ $(document).ready(function() {
   // for dashboard click function
   $('#dashboard').click(function() {
     $('.viewDetailsDiv').addClass('hide');
+  });
+  // for addNewUser click function
+  $('#addNewUser').click(function() {
+    window.location.replace("html/sign-up.html");
   });
   // for help click function open modal
   $('.help').click(function() {
@@ -42,6 +51,7 @@ $(document).ready(function() {
       console.log(res);
       if (res.resCode === "OK") {
         storageremoveItem("login");
+        storageremoveItem("newAdmin");
         window.location.replace("login.html");
       } else {
         console.log(res.msg + "else");
