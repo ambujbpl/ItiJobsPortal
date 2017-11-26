@@ -127,7 +127,7 @@
   <div class="container containerCss border">
     <div class="headerDiv1 backgroundColor">
       <div class="formTitle border">
-        <div class="row no-margin headerDiv2 paddingBottom">
+        <div class="row no-margin headerDiv2 padding5">
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 no-padding registration">
             <div class="registrationDiv hide"></div>
           </div>
@@ -201,21 +201,21 @@
       "ExpCom": capitalize(studentExpCom),
       "ExpYear": studentExpYear,
     };
-    storagesetItem("newStudent", newStudent);
+    sessionsetItem("newStudent", newStudent);
   }
   $(".finalSubmitButtonStudent").on("click", function() {
     if ($('#checkBoxFinal').prop('checked') == true) {
-      var newStudent = storagegetItem("newStudent");
+      var newStudent = sessiongetItem("newStudent");
       console.log(newStudent);
       $.when(Posthandler("/newStudent", newStudent, true)).done(function(res) {
         if (res.resCode == 'OK') {
           console.log(res);
-          storageremoveItem("newStudent");
+          sessionremoveItem("newStudent");
           swal(res.resCode, res.msg, "success");
+          window.location.replace("login.html");
         } else {
           swal("Error!", res.msg, "error");
-          // storageremoveItem("newStudent");
-          $('#adminMobile').focus().select();
+          // sessionremoveItem("newStudent");
           $('.firstSubmitButtonStudent').removeClass('hide');
           $('.finalSubmitButtonStudent').addClass('hide');
         }

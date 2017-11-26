@@ -46,7 +46,7 @@
   <div class="container containerCss border">
     <div class="headerDiv1 backgroundColor">
       <div class="formTitle border">
-        <div class="row no-margin headerDiv2 paddingBottom">
+        <div class="row no-margin headerDiv2 padding5">
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 no-padding registration">
             <div class="registrationDiv hide"></div>
           </div>
@@ -85,20 +85,21 @@
       "City": capitalize(adminCity),
       "Pincode": adminPincode
     };
-    storagesetItem("newAdmin", newAdmin);
+    sessionsetItem("newAdmin", newAdmin);
   }
   $(".finalSubmitButtonAdmin").on("click", function() {
     if ($('#checkBoxFinal').prop('checked') == true) {
-      var newAdmin = storagegetItem("newAdmin");
+      var newAdmin = sessiongetItem("newAdmin");
       console.log(newAdmin);
       $.when(Posthandler("/newAdmin", newAdmin, true)).done(function(res) {
         if (res.resCode == 'OK') {
           console.log(res);
-          storageremoveItem("newAdmin");
+          sessionremoveItem("newAdmin");
           swal(res.resCode, res.msg, "success");
+          window.location.replace("login.html");
         } else {
           swal("Error!", res.msg, "error");
-          // storageremoveItem("newAdmin");
+          // sessionremoveItem("newAdmin");
           $('#adminMobile').focus().select();
           $('.firstSubmitButtonAdmin').removeClass('hide');
           $('.finalSubmitButtonAdmin').addClass('hide');

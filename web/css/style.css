@@ -24,6 +24,10 @@
   padding: 5px;
 }
 
+.padding5 {
+  padding: 5px 0px !important;
+}
+
 .iti-Padding10 {
   padding: 40px 10px;
 }
@@ -148,6 +152,11 @@
 }*/
 
 /*for SignUp form css */
+
+/*sign up for container*/
+.containerload{
+  min-height: 422px !important;
+}
 
 .login-page {
   background-color: #f1f1f1 !important;
@@ -490,3 +499,24 @@
           transform: rotate(360deg)
       }
   }
+
+/*modal css*/
+.modal-header {
+  color: #fff;
+  background-color: #025aa5;
+  border-color: #01549b;
+}
+
+.modal-title {
+    font-size: 12px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    display: inline;
+    width: 100%;
+}
+
+.modal-body{
+  font-size: 12px;
+  font-weight: normal;
+}
