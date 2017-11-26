@@ -2,6 +2,8 @@ var login = storagegetItem("login");
 console.log(login);
 if ((login == null) || (login == "") || (login == undefined)) {
   $('.adminRedioDiv').addClass('hide');
+  $('.bodyloading').addClass('hide');
+  $('#formAdmin').removeClass('hide');
 } else {
   $('.bodyloading').addClass('hide');
   $('#formAdmin').removeClass('hide');
@@ -13,6 +15,7 @@ $.validator.addMethod("emailformat", function(value) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i.test(value)
 });
 $(document).ready(function() {
+  $('#adminName').focus().select();
   var validator = $("#adminForm").validate({
     rules: {
       adminName: {

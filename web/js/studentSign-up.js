@@ -2,6 +2,8 @@ var login = storagegetItem("login");
 console.log(login);
 if ((login == null) || (login == "") || (login == undefined)) {
   $('.adminRedioDiv').addClass('hide');
+  $('.bodyloading').addClass('hide');
+  $('#formStudent').removeClass('hide');
 } else {
   $('.bodyloading').addClass('hide');
   $('#formStudent').removeClass('hide');
@@ -17,7 +19,7 @@ var letters = /^[a-zA-Z\s]+$/;
 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 $(document).ready(function() {
-
+  $('#studentName').focus().select();
   $("#studentForm").validate({
     rules: {
       studentName: {
@@ -204,10 +206,8 @@ $(document).ready(function() {
   var $subscribeInput = $('input[name="checkedEx"]');
   $subscribeInput.on('click', function(){
       if ( $(this).is(':checked') ){
-         alert("checked True");
          $('.showExperienceDiv').removeClass('hide');
       }else{
-         alert("Not checked True");
          $('.showExperienceDiv').addClass('hide');
        }
   });

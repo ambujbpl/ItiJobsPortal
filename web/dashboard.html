@@ -13,11 +13,12 @@
   <title>ITI Jobs Home</title>
 
   <!-- Bootstrap 4 core CSS -->
-  <link href="static/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="static/css/tether.min.css">
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/css/dataTables.bootstrap4.min">
+  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/sweetalert.css" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
@@ -37,7 +38,10 @@
       </ul>
     </div>
   </nav>
-
+  <div class='bodyloading'>
+    <div class="boxloading"></div>
+  </div>
+  <div id="containerDiv" class="hide">
   <div class="container-fluid">
     <div class="row no-padding no-margin myDeshboardContainerCss">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 mainDiv">
@@ -45,33 +49,6 @@
 
         <div class="myCard">
           <div id="insertMyCard" class="row no-margin no-padding justify-content-around">
-            <!-- <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
-              <div class="iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD">
-                <img class="img-rounded borderImage" src="img/company.png" alt="Total Company image" width="65" height="65">
-                <div class="total-cssD total-company">0</div>
-                <div class="iti-dtitle">Total Companies</div>
-                <p class="no-margin no-padding"><a class="anch1 btn btn btn-secondary listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
-              <div class="iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD">
-                <img class="img-rounded borderImage" src="img/itiicon.png" alt="Total ITI image" width="65" height="65">
-                <div class="total-cssD total-iti">0</div>
-                <div class="iti-dtitle">Total ITI Listed</div>
-                <p class="no-margin no-padding"><a class="anch2 btn btn btn-secondary listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 iti-Padding5">
-              <div class="iti-DivBod iti-Padding10 iti-DivCen iti-DivCenD">
-                <img class="img-rounded borderImage" src="img/student.png" alt="Total Student image" width="65" height="65">
-                <div class="total-cssD total-student">0</div>
-                <div class="iti-dtitle">Total Students</div>
-                <p class="no-margin no-padding"><a class="anch3 btn btn btn-secondary listComA" role="button">View details &raquo;</a></p>
-
-              </div>
-            </div> -->
           </div>
         </div>
 
@@ -88,8 +65,10 @@
 
             </div>
 
-            <div class="table-responsive col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 table-bordered no-padding myTableCss">
-              <table class="table table-striped">
+            <!-- <div class="table-responsive col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 table-bordered no-padding myTableCss"> -->
+              <!-- <table class="table table-striped"> -->
+              <div class="tableDataDiv" style="width:100%;">
+              <table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th class="headerID">ID</th>
@@ -98,6 +77,14 @@
                     <th class="headerDetails">Details</th>
                   </tr>
                 </thead>
+                <tfoot>
+                  <tr>
+                    <th class="headerID">ID</th>
+                    <th class="headerName">Name</th>
+                    <th class="headerArea">Area</th>
+                    <th class="headerDetails">Details</th>
+                  </tr>
+                </tfoot>
                 <tbody id="tableBody">
                 </tbody>
               </table>
@@ -106,22 +93,11 @@
 
           </div>
         </div>
-        <div class="myCard">
-          <div class="navbar navbar-default navbar-static-bottom">
-            <p class="navbar-text pull-left">
-              Built by <a href="#" target="_blank">Ambuj Dubey</a> <span>All Rights Reserved, &copy; 2017 ITI JOBS</span>
-            </p>
-          </div>
-        </div>
+
 
       </div>
     </div>
   </div>
-
-  <!-- Button trigger modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-    Launch demo modal
-  </button> -->
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -142,18 +118,24 @@
       </div>
     </div>
   </div>
-
+  <footer class="iti-Footer">
+    Built by <a href="#" target="_blank">Ambuj Dubey</a> <span>All Rights Reserved, &copy; 2017 ITI JOBS</span>
+  </footer>
+  </div>
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="static/js/jquery.validate.js"></script>
+  <script type="text/javascript" src="static/js/tether.min.js"></script>
+  <script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="static/js/dataTables.bootstrap4.min.js"></script>
   <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="static/js/sweetalert.min.js"></script>
   <script type="text/javascript" src="js/storage.js"></script>
   <script type="text/javascript" src="js/ajaxHandler.js"></script>
-  </head>
   <script type="text/javascript" src="js/dashboard.js"></script>
+</head>
 
 </body>
 
