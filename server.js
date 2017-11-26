@@ -9,12 +9,12 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'itijobs'
+  database: 'itijobs',
+  multipleStatements: true
 });
 // mysql connection
-connection.connect({
-  multipleStatements: true
-}, function(err, data) {
+connection.connect(
+  function(err, data) {
   if (err) {
     console.log(err);
   }
@@ -32,6 +32,28 @@ app.get('/', function(req, res) {
 });
 app.listen(8000, function(req, res) {
   console.log("server is listening port number 8000");
+});
+
+app.get('/total', function(req, res, next) {
+  connection.query('SELECT COUNT(Name) FROM iti; SELECT COUNT(Name) FROM student; SELECT COUNT(Name) FROM company', function(err, result,feild) {
+    if (err) throw err;
+    else {
+      if (result != '') {
+        console.log(result);
+        return res.json({
+          "resCode": "OK",
+          "Total_ITI": result[0][0]['COUNT(Name)'],
+          "Total_Student": result[1][0]['COUNT(Name)'],
+          "Total_Company": result[2][0]['COUNT(Name)']
+        });
+      } else {
+        return res.json({
+          "resCode": "Error",
+          "msg": "Error Register"
+        });
+      }
+    }
+  });
 });
 
 app.post('/login', function(req, res, next) {
@@ -132,6 +154,90 @@ app.post("/newStudent", function(req, res) {
                     return res.json({
                       "resCode": "OK",
                       "msg": "New Student Register"
+                    });
+                  });
+                }
+              });
+            }
+          }
+        });
+
+      } else {
+        return res.json({
+          "resCode": "Error",
+          "msg": "Mobile Number Already Register"
+        });
+      }
+    }
+  });
+});
+
+app.post("/newCompany", function(req, res) {
+  console.log(req.body);
+  connection.query('SELECT * FROM login WHERE uname = "' + req.body.HR_Mobile + '"', function(err, result) {
+    if (err) throw err;
+    else {
+      if (result == '') {
+        connection.query('SELECT * FROM company WHERE Name = "' + req.body.Name + '" AND ( City = "' + req.body.City + '" OR Pincode = "' + req.body.Pincode + '")', function(err, result1) {
+          if (err) throw err;
+          else {
+            if (result1 != '') {
+              console.log(result1);
+              return res.json({
+                "resCode": "Error",
+                "msg": "User Already Register"
+              });
+            } else {
+              connection.query('INSERT INTO company SET ?', req.body, function(err, result2) {
+                if (err) throw err;
+                else {
+                  connection.query('INSERT INTO login VALUES( "Admin","' + req.body.HR_Mobile + '", "12345", "' + req.body.Name + '")', function(err, result3) {
+                    console.log("result3");
+                    return res.json({
+                      "resCode": "OK",
+                      "msg": "New Company Register"
+                    });
+                  });
+                }
+              });
+            }
+          }
+        });
+
+      } else {
+        return res.json({
+          "resCode": "Error",
+          "msg": "Mobile Number Already Register"
+        });
+      }
+    }
+  });
+});
+
+app.post("/newIti", function(req, res) {
+  console.log(req.body);
+  connection.query('SELECT * FROM login WHERE uname = "' + req.body.TPO_Mobile + '"', function(err, result) {
+    if (err) throw err;
+    else {
+      if (result == '') {
+        connection.query('SELECT * FROM iti WHERE Name = "' + req.body.Name + '" AND ( City = "' + req.body.City + '" OR Pincode = "' + req.body.Pincode + '")', function(err, result1) {
+          if (err) throw err;
+          else {
+            if (result1 != '') {
+              console.log(result1);
+              return res.json({
+                "resCode": "Error",
+                "msg": "User Already Register"
+              });
+            } else {
+              connection.query('INSERT INTO iti SET ?', req.body, function(err, result2) {
+                if (err) throw err;
+                else {
+                  connection.query('INSERT INTO login VALUES( "Admin","' + req.body.TPO_Mobile + '", "12345", "' + req.body.Name + '")', function(err, result3) {
+                    console.log("result3");
+                    return res.json({
+                      "resCode": "OK",
+                      "msg": "New ITI College Register"
                     });
                   });
                 }
