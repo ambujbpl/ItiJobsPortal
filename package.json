@@ -18,6 +18,7 @@
     "morgan": "~1.7.0",
     "mustache": "^2.3.0",
     "mysql": "^2.15.0",
+    "mysql-queries": "^0.2.0",
     "nodemailer": "*",
     "nodemon": "^1.11.0",
     "passcode": "~1.0.2",
