@@ -21,7 +21,7 @@ var login = sessiongetItem("login");
 console.log(login);
 // console.log(login1);
 if((login == null)||(login == "")||(login == undefined)){
-  $('.adminRedioDiv').addClass('hide');
+  // $('.adminRedioDiv').addClass('hide');
 }
 // $(window).unload(function(){
 //   localStorage.clear();

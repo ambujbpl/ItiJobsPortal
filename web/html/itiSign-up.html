@@ -38,8 +38,20 @@
           </div>
         </div>
       </div>
-      <div class="formTitle border">ITI College Address
+      <div class="formTitle border">ITI College Trade and Address
         <div class="row no-margin headerDiv2 paddingBottom">
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
+            <label for="validation2">Trade Name<i class="red"> *</i></label>
+            <select id="trade" name="trade" form="itiForm" class="form-control" multiple="multiple">
+                <!-- <option>select Trade</option>
+                <option value="1">Carpenter</option>
+                <option value="2">Fitter</option>
+                <option value="3">Plumber</option>
+                <option value="4">Welder</option>
+                <option value="5">Painter</option>
+                <option value="6">Elecrician</option> -->
+              </select>
+          </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
             <label for="validation3">Address<i class="red"> *</i></label>
             <input type="text" class="form-control" id="itiAddress" name="itiAddress" placeholder="College Address">
@@ -82,7 +94,7 @@
         <div class="row no-margin headerDiv2 paddingBottom">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 no-padding">
             <label for="validation1">select College Logo<i class="red"> *</i></label>
-            <input type="file" class="form-control" id="itiLogo" name="itiLogo" value="">
+            <input type="file" class="form-control" id="itiLogo" name="itiLogo" accept="image/*">
           </div>
         </div>
       </div>
@@ -131,8 +143,15 @@
     var itiTPOName = $('#itiTPOName').val();
     var itiTPOEmail = $('#itiTPOEmail').val();
     var itiTPOMobile = $('#itiTPOMobile').val();
+    var file = document.getElementById('itiLogo').files[0];
     var itiLogo = $('#itiLogo').val();
+    var reader = new FileReader();
+reader.readAsText(file, 'UTF-8');
+reader.onload = shipOff;
+var trade = JSON.stringify($('#trade').val());
+// console.log(">>>>",trade);
     console.log(itiLogo);
+    console.log(file.name);
     newIti = {
       "Name": capitalize(itiName),
       "Registration": itiReg,
@@ -148,6 +167,8 @@
       "TPO_Name": capitalize(itiTPOName),
       "TPO_Email": itiTPOEmail,
       "TPO_Mobile": itiTPOMobile,
+      "Logo": file.name,
+      "Trade": trade
     };
     sessionsetItem("newIti", newIti);
     console.log(newIti);
@@ -156,12 +177,12 @@
     if ($('#checkBoxFinal').prop('checked') == true) {
       var newIti = sessiongetItem("newIti");
       console.log(newIti);
-      $.when(Posthandler("/newIti", newIti, true)).done(function(res) {
+      $.when(Posthandler("/route/newIti", newIti, true)).done(function(res) {
         if (res.resCode == 'OK') {
           console.log(res);
           sessionremoveItem("newIti");
           swal(res.resCode, res.msg, "success");
-          window.location.replace("login.html");
+          window.location.replace("../login.html");
         } else {
           swal("Error!", res.msg, "error");
           // sessionremoveItem("newIti");
@@ -173,4 +194,9 @@
       swal("Error!", "Please Check Checkbox before final Submission!", "error");
     }
   });
+
+  function shipOff(event) {
+    var fileName = document.getElementById('itiLogo').files[0].name; //Should be 'picture.jpg'
+    console.log(fileName);
+}
 </script>

@@ -21,10 +21,12 @@ $(document).ready(function() {
       adminName: {
         required: true,
         onlyLatters: true,
+        maxlength: 20,
       },
       adminEmail: {
         required: true,
         emailformat: true,
+        maxlength: 30,
       },
       adminMobile: {
         required: true,
@@ -34,10 +36,12 @@ $(document).ready(function() {
       },
       adminAddress: {
         required: true,
+        maxlength: 30,
       },
       adminCity: {
         required: true,
         onlyLatters: true,
+        maxlength: 20,
       },
       adminPincode: {
         required: true,
@@ -50,10 +54,12 @@ $(document).ready(function() {
       adminName: {
         required: "Please enter Your Name",
         onlyLatters: "Name should be text only",
+        maxlength: "Field should not more then 20 characters",
       },
       adminEmail: {
         required: "Please provide Your Email Address",
         emailformat: "Please Provide Valid Email Address",
+        maxlength: "Field should not more then 30 characters",
       },
       adminMobile: {
         required: "Please enter Your Mobile Number",
@@ -63,10 +69,12 @@ $(document).ready(function() {
       },
       adminAddress: {
         required: "Please provide Your Address",
+        maxlength: "Field should not more then 30 characters",
       },
       adminCity: {
         required: "Please provide Your City",
         onlyLatters: "City Name should be text only",
+        maxlength: "Field should not more then 20 characters",
       },
       adminPincode: {
         required: "Please provide Your PinCode",

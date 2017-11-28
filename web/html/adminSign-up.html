@@ -91,12 +91,12 @@
     if ($('#checkBoxFinal').prop('checked') == true) {
       var newAdmin = sessiongetItem("newAdmin");
       console.log(newAdmin);
-      $.when(Posthandler("/newAdmin", newAdmin, true)).done(function(res) {
+      $.when(Posthandler("/route/newAdmin", newAdmin, true)).done(function(res) {
         if (res.resCode == 'OK') {
           console.log(res);
           sessionremoveItem("newAdmin");
           swal(res.resCode, res.msg, "success");
-          window.location.replace("login.html");
+          window.location.replace("../login.html");
         } else {
           swal("Error!", res.msg, "error");
           // sessionremoveItem("newAdmin");
