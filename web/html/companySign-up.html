@@ -136,13 +136,14 @@
     var comHREmail = $('#comHREmail').val();
     var comHRMobile = $('#comHRMobile').val();
     var comLogo = $('#comLogo').val();
+    var file = document.getElementById('comLogo').files[0];
     newCompany = {
       "Name": capitalize(comName),
       "Registration": comReg,
       "Landline": comLand,
       "Email": comEmail,
-      "Mobile": comWeb,
-      "Type": comYear,
+      "Website": comWeb,
+      "YOI": comYear,
       "Address": comAddress,
       "City": capitalize(comCity),
       "State": capitalize(comState),
@@ -151,6 +152,7 @@
       "HR_Name": capitalize(comHRName),
       "HR_Email": comHREmail,
       "HR_Mobile": comHRMobile,
+      "Logo": file.name
     };
     sessionsetItem("newCompany", newCompany);
     console.log(newCompany);
@@ -159,12 +161,12 @@
     if ($('#checkBoxFinal').prop('checked') == true) {
       var newCompany = sessiongetItem("newCompany");
       console.log(newCompany);
-      $.when(Posthandler("/newCompany", newCompany, true)).done(function(res) {
+      $.when(Posthandler("/route/newCompany", newCompany, true)).done(function(res) {
         if (res.resCode == 'OK') {
           console.log(res);
           sessionremoveItem("newCompany");
           swal(res.resCode, res.msg, "success");
-          window.location.replace("login.html");
+          window.location.replace("../login.html");
         } else {
           swal("Error!", res.msg, "error");
           // sessionremoveItem("newCompany");

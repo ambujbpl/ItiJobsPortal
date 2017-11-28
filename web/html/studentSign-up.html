@@ -66,18 +66,20 @@
         <div class="row no-margin headerDiv2 paddingBottom">
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
             <label for="validation1">Name of College<i class="red"> *</i></label>
-            <input type="text" class="form-control capitalize" id="studentCollege" name="studentCollege" placeholder="Government Industrial Training Institute" value="">
+            <!-- <input type="text" class="form-control capitalize" id="studentCollege" name="studentCollege" placeholder="Government Industrial Training Institute" value=""> -->
+            <select id="studentCollege" name="studentCollege" form="studentForm" class="form-control">
+            </select>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
             <label for="validation2">Trade Name<i class="red"> *</i></label>
             <select id="trade" name="trade" form="studentForm" class="form-control">
-                <option value="">select Trade</option>
+                <!-- <option value="">select Trade</option>
                 <option value="Carpenter">Carpenter</option>
                 <option value="Fitter">Fitter</option>
                 <option value="Plumber">Plumber</option>
                 <option value="Welder">Welder</option>
                 <option value="Painter">Painter</option>
-                <option value="Elecrician">Elecrician</option>
+                <option value="Elecrician">Elecrician</option> -->
               </select>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
@@ -86,11 +88,11 @@
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
             <label for="validation2">Percentage of Marks<i class="red"> *</i></label>
-            <input type="text" class="form-control" id="studentPer" name="studentPer" placeholder="Marks in Percentage" value="">
+            <input type="text" class="form-control" id="studentPer" name="studentPer" placeholder="Percentage" value="">
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
             <label for="validation1">High School Percentage<i class="red"> *</i></label>
-            <input type="text" class="form-control" id="studentHSPer" name="studentHSPer" placeholder="Marks in Percentage" value="">
+            <input type="text" class="form-control" id="studentHSPer" name="studentHSPer" placeholder="Percentage" value="">
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 no-padding">
             <label for="validation1">Willing to job<i class="red"> *</i></label>
@@ -110,13 +112,13 @@
             <label for="validation1">Experience in Year<i class="red"> *</i></label>
             <!-- <input type="text" class="form-control" id="studentExpYear" name="studentExpYear" placeholder="Total Experience" value=""> -->
             <select id="studentExpYear" name="studentExpYear" form="studentForm" class="form-control">
-                <option value="">select Total Year of Experience</option>
+                <!-- <option value="">select Total Year of Experience</option>
                 <option value="Below 1 Year">Below 1 Year</option>
                 <option value="1 Year">1 Year</option>
                 <option value="Below 2 Year">Below 2 Year</option>
                 <option value="2 Year">2 Year</option>
                 <option value="3 Year">3 Year</option>
-                <option value="More then 3 Year">More then 3 Year</option>
+                <option value="More then 3 Year">More then 3 Year</option> -->
               </select>
           </div>
         </div>
@@ -193,12 +195,12 @@
       "Mobile": studentMobile,
       "College": capitalize(studentCollege),
       "Trade": trade,
-      "PassY": studentPassY,
+      "POY": studentPassY,
       "Per": studentPer,
       "HSPer": studentHSPer,
       "Job": Job,
       "Experience": exCheck,
-      "ExpCom": capitalize(studentExpCom),
+      "LastComp": capitalize(studentExpCom),
       "ExpYear": studentExpYear,
     };
     sessionsetItem("newStudent", newStudent);
@@ -207,12 +209,12 @@
     if ($('#checkBoxFinal').prop('checked') == true) {
       var newStudent = sessiongetItem("newStudent");
       console.log(newStudent);
-      $.when(Posthandler("/newStudent", newStudent, true)).done(function(res) {
+      $.when(Posthandler("/route/newStudent", newStudent, true)).done(function(res) {
         if (res.resCode == 'OK') {
           console.log(res);
           sessionremoveItem("newStudent");
           swal(res.resCode, res.msg, "success");
-          window.location.replace("login.html");
+          window.location.replace("../login.html");
         } else {
           swal("Error!", res.msg, "error");
           // sessionremoveItem("newStudent");

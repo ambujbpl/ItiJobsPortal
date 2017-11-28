@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var obj;
-  $.when(Gethandler("/total", obj, true)).done(function(res) {
+  $.when(Gethandler("/route/total", obj, true)).done(function(res) {
     console.log(res);
     if (res.resCode == "OK") {
       $('.total-company').html(res.Total_Company);
@@ -10,9 +10,13 @@ $(document).ready(function() {
       $('#containerDiv').removeClass('hide');
     } else {
       swal("Error!", res.msg, "error");
+      $('.bodyloading').addClass('hide');
+      $('#containerDiv').removeClass('hide');
     }
   }).fail(function() {
     swal("Error!", "sorry unable to load Data. please check your internet connection", "error");
+    $('.bodyloading').addClass('hide');
+    $('#containerDiv').removeClass('hide');
   });
 
   $(".contactUs").click(function() {
@@ -140,7 +144,7 @@ function myFunction() {
     "password": decodedString
   };
   console.log(obj);
-  $.when(Posthandler("/login", obj, true)).done(function(res) {
+  $.when(Posthandler("/route/login", obj, true)).done(function(res) {
     console.log(res);
     if (res.resCode == 'OK') {
       var role = res.role;

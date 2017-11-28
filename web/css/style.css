@@ -520,3 +520,14 @@
   font-size: 12px;
   font-weight: normal;
 }
+
+.width100{
+  width: 100% !important;
+}
+
+select option {
+  /*border: 1px solid #000; */
+  /*background: #010;*/
+  max-height: 300px !important;
+  overflow-y: scroll !important;
+}

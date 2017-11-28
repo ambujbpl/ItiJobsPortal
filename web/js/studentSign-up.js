@@ -25,35 +25,43 @@ $(document).ready(function() {
       studentName: {
         required: true,
         onlyLatters: true,
+        maxlength: 18,
       },
       studentFather: {
         required: true,
         onlyLatters: true,
+        maxlength: 18,
       },
       studentMother: {
         required: true,
         onlyLatters: true,
+        maxlength: 18,
       },
       studentEmail: {
         required: true,
         emailformat: true,
+        maxlength: 25,
       },
       date: {
         required: true,
       },
       sex: {
         required: true,
+        maxlength: 6,
       },
       studentAddress: {
         required: true,
+        maxlength: 25,
       },
       studentCity: {
         required: true,
         onlyLatters: true,
+        maxlength: 18,
       },
       studentState: {
         required: true,
         onlyLatters: true,
+        maxlength: 18,
       },
       studentPin: {
         required: true,
@@ -69,11 +77,10 @@ $(document).ready(function() {
       },
       studentCollege: {
         required: true,
-        onlyLatters: true,
+        maxlength: 25,
       },
       trade: {
         required: true,
-        onlyLatters: true,
       },
       studentPassY: {
         required: true,
@@ -84,10 +91,12 @@ $(document).ready(function() {
       studentPer: {
         required: true,
         digits: true,
+        maxlength: 3,
       },
       studentHSPer: {
         required: true,
         digits: true,
+        maxlength: 3,
       },
       jobs: {
         required: true,
@@ -97,35 +106,43 @@ $(document).ready(function() {
       studentName: {
         required: "Please enter Your Name",
         onlyLatters: "Name should be text only",
+        maxlength: "Field should not more then 18 characters",
       },
       studentFather: {
         required: "Please provide Your Father's Name",
         onlyLatters: "Name should be text only",
+        maxlength: "Field should not more then 18 characters",
       },
       studentMother: {
         required: "Please provide Your Mother's Name",
         onlyLatters: "Name should be text only",
+        maxlength: "Field should not more then 18 characters",
       },
       studentEmail: {
         required: "Please provide Your Email Address",
         emailformat: "Please Provide Valid Email Address",
+        maxlength: "Field should not more then 25 characters",
       },
       date: {
         required: "Please provide Your Date of Birth",
       },
       sex: {
         required: "This field it mandatory",
+        maxlength: "Field should not more then 6 characters",
       },
       studentAddress: {
         required: "Please provide Your Address",
+        maxlength: "Field should not more then 25 characters",
       },
       studentCity: {
         required: "Please provide Your City",
         onlyLatters: "City Name should be text only",
+        maxlength: "Field should not more then 18 characters",
       },
       studentState: {
         required: "Please provide Your State",
         onlyLatters: "State Name should be text only",
+        maxlength: "Field should not more then 18 characters",
       },
       studentPin: {
         required: "Please provide Your PinCode",
@@ -141,7 +158,7 @@ $(document).ready(function() {
       },
       studentCollege: {
         required: "Please provide Your College Name",
-        onlyLatters: "College Name should be text only",
+        maxlength: "Field should not more then 25 characters",
       },
       trade: {
         required: "Please Select Your Trade",
@@ -154,11 +171,13 @@ $(document).ready(function() {
       },
       studentPer: {
         required: "Please provide Your Percentage",
-        digits: "Please enter a valid Percentage",
+        digits: "Enter valid Percentage and (.) not allow",
+        maxlength: "Field should not more then 3 Numbers",
       },
       studentHSPer: {
         required: "Please provide Your High School Percentage",
-        digits: "Please enter a valid Percentage",
+        digits: "Enter valid Percentage and (.) not allow",
+        maxlength: "Field should not more then 3 Numbers",
       },
       jobs: {
         required: "This field it mandatory",
@@ -187,7 +206,7 @@ $(document).ready(function() {
   var date_input = $('input[name="date"]'); //our date input has the name "date"
   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
   var options = {
-    format: 'dd/mm/yyyy',
+    format: 'yyyy-mm-dd',
     container: container,
     todayHighlight: true,
     autoclose: true,
@@ -204,11 +223,58 @@ $(document).ready(function() {
     }
   });
   var $subscribeInput = $('input[name="checkedEx"]');
-  $subscribeInput.on('click', function(){
-      if ( $(this).is(':checked') ){
-         $('.showExperienceDiv').removeClass('hide');
-      }else{
-         $('.showExperienceDiv').addClass('hide');
-       }
+  $subscribeInput.on('click', function() {
+    if ($(this).is(':checked')) {
+      $('.showExperienceDiv').removeClass('hide');
+    } else {
+      $('.showExperienceDiv').addClass('hide');
+    }
+  });
+  var obj;
+  $.when(Gethandler("/route/getCollegeLists", obj, true)).done(function(res) {
+    $("#studentCollege").html(" ");
+    if (res.resCode == 'OK') {
+      $("#studentCollege").append('<option selected disabled>None</option>');
+      for (var i = 0; i < res.results.length; i++) {
+        $("#studentCollege").append('<option value="' + res.results[i]['Name'] + '">' + res.results[i]['Name'] + '</option>');
+      }
+    } else {
+      console.log(res.results);
+    }
+  }).fail(function() {
+    swal("Error!", "sorry unable to load College list. please check your internet connection", "error");
+  });
+
+  $('#studentCollege').on('change', function() {
+    var x = $(this).val();
+    $("#trade").html(" ");
+    $.when(Posthandler("/route/getCollegeWiseTradeLists", {
+      "Name": x
+    }, true)).done(function(res) {
+      if (res.resCode == 'OK') {
+        $("#trade").append('<option selected disabled>None</option>');
+        for (var i = 0; i < res.results.length; i++) {
+          $("#trade").append('<option value="' + res.results[i]['Trade'] + '">' + res.results[i]['Trade'] + '</option>');
+        }
+      } else {
+        console.log(res.results);
+      }
+    }).fail(function() {
+      swal("Error!", "sorry unable to load College list. please check your internet connection", "error");
+    });
+  });
+
+  $.when(Gethandler("/route/getExperienceLists", obj, true)).done(function(res) {
+    $("#studentExpYear").html(" ");
+    if (res.resCode == 'OK') {
+      $("#studentExpYear").append('<option selected disabled>None</option>');
+      for (var i = 0; i < res.results.length; i++) {
+        $("#studentExpYear").append('<option value="' + res.results[i]['Id'] + '">' + res.results[i]['experience'] + '</option>');
+      }
+    } else {
+      console.log(res.results);
+    }
+  }).fail(function() {
+    swal("Error!", "sorry unable to load Experience list. please check your internet connection", "error");
   });
 });

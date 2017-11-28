@@ -13,7 +13,7 @@ $(document).ready(function() {
   }
   $('.page-header').html("<div>" + urole + " - <span class='username'>" + uname + "</span></div>");
   var obj;
-  $.when(Gethandler("/total", obj, true)).done(function(res) {
+  $.when(Gethandler("/route/total", obj, true)).done(function(res) {
     console.log(res);
     if (res.resCode == "OK") {
       $('.total-company').html(res.Total_Company);
@@ -67,7 +67,7 @@ $(document).ready(function() {
     // $('.listComDetailsDiv').addClass('hide');
     var obj = {};
 
-    $.when(Posthandler("/logout", obj, true)).done(function(res) {
+    $.when(Posthandler("/route/logout", obj, true)).done(function(res) {
       console.log(res);
       if (res.resCode === "OK") {
         sessionremoveItem("login");
