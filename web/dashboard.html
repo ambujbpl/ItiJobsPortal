@@ -15,7 +15,7 @@
   <!-- Bootstrap 4 core CSS -->
   <link rel="stylesheet" type="text/css" href="static/css/tether.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="static/css/dataTables.bootstrap4.min">
+  <link rel="stylesheet" type="text/css" href="static/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/sweetalert.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -55,21 +55,15 @@
         <div class="myCard viewDetailsDiv hide">
           <div class="row no-margin no-padding">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 no-padding">
-              <legend class="anchLegend">Anchor 1</legend>
-              <p class="anchPara no-margin no-padding">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies, metus eget fringilla fermentum, sem justo pulvinar tellus, ac varius neque ante eget mi. Donec cursus nibh ultrices vulputate aliquet. Morbi nulla enim, molestie
-                eu ullamcorper quis, placerat a mauris. Proin vel magna ullamcorper, vulputate leo eu, egestas odio. Vivamus erat leo, egestas in euismod sed, fermentum nec magna. Nunc nisi enim, euismod a tellus sit amet, fermentum adipiscing ipsum.
-                Fusce rhoncus diam ac neque aliquam convallis. Etiam malesuada, nibh id rutrum euismod, enim augue gravida dolor, at vulputate felis mi at magna. Nulla luctus, libero eget luctus gravida, sapien enim varius massa, adipiscing aliquet lacus
-                mi eu eros. Duis pretium laoreet ullamcorper. Aenean in mauris nec libero tincidunt pharetra non et dui. Sed tortor turpis, mollis et tempus eu, auctor laoreet neque. Etiam eu tortor rutrum, rutrum mauris sit amet, hendrerit augue. Sed
-                ut tincidunt nisi. Nam consectetur velit ac pharetra venenatis.
-              </p>
-
+              <legend class="anchLegend"></legend>
+              <p class="anchPara no-margin no-padding"></p>
             </div>
 
             <!-- <div class="table-responsive col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xs-12 table-bordered no-padding myTableCss"> -->
               <!-- <table class="table table-striped"> -->
-              <div class="tableDataDiv" style="width:100%;">
-              <table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                <thead>
+              <div id="tablecontainerDiv" class="tableDataDiv">
+                <!-- <table id="example" class="display" width="100%" cellspacing="0">
+                  <thead>
                   <tr>
                     <th class="headerID">ID</th>
                     <th class="headerName">Name</th>
@@ -88,7 +82,9 @@
                 <tbody id="tableBody">
                 </tbody>
               </table>
-            </div>
+            </div> -->
+
+<!-- <section class='content'><div class='boxC'><table id='employee_listTable' class='cell-border display employeeListTable_header hide'  cellspacing=0 width=100%><thead class='leaveTable_header'><tr><th>Employee No</th><th>Employee Name</th><th>Contact No</th><th>Designation</th><th>Email ID</th><th>Status</th><th>Date Of Joining</th><th>Supervisor</th><th>Edit</th></tr></thead><tbody class='employeeListTable_body'></tbody></table></div></section> -->
 
 
           </div>
@@ -132,8 +128,11 @@
   <script type="text/javascript" src="static/js/dataTables.bootstrap4.min.js"></script>
   <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="static/js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="static/js/moment.min.js"></script>
   <script type="text/javascript" src="js/storage.js"></script>
   <script type="text/javascript" src="js/ajaxHandler.js"></script>
+  <script type="text/javascript" src="js/createDataTable.js"></script>
+  <script type="text/javascript" src="js/aboutMe.js"></script>
   <script type="text/javascript" src="js/dashboard.js"></script>
 </head>
 
