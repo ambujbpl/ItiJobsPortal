@@ -525,9 +525,47 @@
   width: 100% !important;
 }
 
+/*select option for registration form*/
 select option {
   /*border: 1px solid #000; */
   /*background: #010;*/
   max-height: 300px !important;
   overflow-y: scroll !important;
+}
+
+.tableDataDiv{
+  width: 100%;
+  padding: 5px;
+}
+
+/*About Me list css(dashboard page)*/
+
+.aboutMEeTable_header, .aboutMeTable_body {
+    text-align: center;
+    width: auto;
+}
+/*.dataTables_wrapper{overflow-x: scroll !important;}*/
+
+.aboutMEeTable_header thead th {
+    font-size: 12px;
+    text-align: center;
+}
+
+.aboutMEeTable_header tbody td {
+    font-size: 12px;
+    text-align: center;
+}
+
+.editrow {
+    cursor: pointer;
+}
+
+#viewMoreTable tr th {
+  font-size: 10px;
+  text-align: center;
+}
+
+#viewMoreTable tr td {
+  font-size: 10px;
+  text-align: center;
 }
