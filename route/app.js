@@ -134,7 +134,7 @@ router.get('/getExperienceLists', function(req, res, next) {
 
 router.post('/getCollegeWiseTradeLists', function(req, res, next) {
   console.log(req.body);
-  connection.query('SELECT * FROM collegewisetrade where (Name) = "'+ req.body.Name +'"', function(err, result, feild) {
+  connection.query('SELECT * FROM collegewisetrade where (Name) = "' + req.body.Name + '"', function(err, result, feild) {
     if (err) throw err;
     else {
       if (result != '') {
@@ -248,10 +248,10 @@ router.post("/newStudent", function(req, res) {
                 if (err) throw err;
                 else {
                   console.log("result2");
-                    return res.json({
-                      "resCode": "OK",
-                      "msg": "New Student Register"
-                    });
+                  return res.json({
+                    "resCode": "OK",
+                    "msg": "New Student Register"
+                  });
                 }
               });
             }
@@ -284,16 +284,16 @@ router.post("/newCompany", function(req, res) {
                 "msg": "User Already Register"
               });
             } else {
-            var sql = 'INSERT INTO company(Name,Registration,Landline,Email,Website,YOI,Address,City,State,Pincode,District,HR_Name,HR_Email,HR_Mobile,Logo,Date) VALUES ("' + req.body.Name + '","' + req.body.Registration + '","' + req.body.Landline + '","' + req.body.Email + '","' + req.body.Website + '","' + req.body.YOI + '","' + req.body.Address + '","' + req.body.City + '","' + req.body.State + '","' + req.body.Pincode + '","' + req.body.District + '","' + req.body.HR_Name + '","' + req.body.HR_Email + '","' + req.body.HR_Mobile + '","' + req.body.Logo + '","' + date + '");INSERT INTO login VALUES( "Company","' + req.body.HR_Mobile + '", "12345", "' + req.body.Name + '", "' + date + '")';
+              var sql = 'INSERT INTO company(Name,Registration,Landline,Email,Website,YOI,Address,City,State,Pincode,District,HR_Name,HR_Email,HR_Mobile,Logo,Date) VALUES ("' + req.body.Name + '","' + req.body.Registration + '","' + req.body.Landline + '","' + req.body.Email + '","' + req.body.Website + '","' + req.body.YOI + '","' + req.body.Address + '","' + req.body.City + '","' + req.body.State + '","' + req.body.Pincode + '","' + req.body.District + '","' + req.body.HR_Name + '","' + req.body.HR_Email + '","' + req.body.HR_Mobile + '","' + req.body.Logo + '","' + date + '");INSERT INTO login VALUES( "Company","' + req.body.HR_Mobile + '", "12345", "' + req.body.Name + '", "' + date + '")';
               connection.query(sql, req.body, function(err, result2) {
                 if (err) throw err;
                 else {
                   // connection.query('INSERT INTO login VALUES( "Company","' + req.body.HR_Mobile + '", "12345", "' + req.body.Name + '")', function(err, result3) {
-                    console.log("result3");
-                    return res.json({
-                      "resCode": "OK",
-                      "msg": "New Company Register"
-                    });
+                  console.log("result3");
+                  return res.json({
+                    "resCode": "OK",
+                    "msg": "New Company Register"
+                  });
                   // });
                 }
               });
@@ -344,10 +344,10 @@ router.post("/newIti", function(req, res) {
                           }
                         });
                       });
-                        return res.json({
-                          "resCode": "OK",
-                          "msg": "New ITI College Register"
-                        });
+                      return res.json({
+                        "resCode": "OK",
+                        "msg": "New ITI College Register"
+                      });
                     }
                   });
                 }
@@ -365,4 +365,93 @@ router.post("/newIti", function(req, res) {
     }
   });
 });
+
+router.post('/aboutMe', function(req, res, next) {
+  console.log(req.body.Role);
+  switch (req.body.Role) {
+    case "Admin":
+      console.log("Admin");
+      connection.query('SELECT * FROM admin where (Name) = "'+ req.body.Name +'" AND (Mobile) = "'+ req.body.Number +'"', function(err, result, feild) {
+        if (err) throw err;
+        else {
+          if (result != '') {
+            console.log(result);
+            return res.json({
+              "resCode": "OK",
+              "results": result
+            });
+          } else {
+            return res.json({
+              "resCode": "Error",
+              "msg": "Information Not existing"
+            });
+          }
+        }
+      });
+      break;
+    case "Student":
+      console.log("Student");
+      connection.query('SELECT * FROM student where (Name) = "'+ req.body.Name +'" AND (Mobile) = "'+ req.body.Number +'"', function(err, result, feild) {
+        if (err) throw err;
+        else {
+          if (result != '') {
+            console.log(result);
+            return res.json({
+              "resCode": "OK",
+              "results": result
+            });
+          } else {
+            return res.json({
+              "resCode": "Error",
+              "msg": "Information Not existing"
+            });
+          }
+        }
+      });
+      break;
+    case "College":
+      console.log("College");
+      connection.query('SELECT * FROM college where (Name) = "'+ req.body.Name +'" AND (TPO_Mobile) = "'+ req.body.Number +'"', function(err, result, feild) {
+        if (err) throw err;
+        else {
+          if (result != '') {
+            console.log(result);
+            return res.json({
+              "resCode": "OK",
+              "results": result
+            });
+          } else {
+            return res.json({
+              "resCode": "Error",
+              "msg": "This College Trades List empty"
+            });
+          }
+        }
+      });
+      break;
+    case "Company":
+      console.log("Company");
+      connection.query('SELECT * FROM company where (Name) = "'+ req.body.Name +'" AND (HR_Mobile) = "'+ req.body.Number +'"', function(err, result, feild) {
+        if (err) throw err;
+        else {
+          if (result != '') {
+            console.log(result);
+            return res.json({
+              "resCode": "OK",
+              "results": result
+            });
+          } else {
+            return res.json({
+              "resCode": "Error",
+              "msg": "This College Trades List empty"
+            });
+          }
+        }
+      });
+      break;
+    default:
+      console.log("Role Is Not Present");
+  }
+});
+
 module.exports = router
