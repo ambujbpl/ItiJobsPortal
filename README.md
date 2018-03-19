@@ -18,5 +18,17 @@ Provide code examples and explanations of how to get the project.
 
 ## Contributors
 
-Entire Front end developed by me and we will introduce Back End Team after some time. 
+Ambuj Dubey(www.ambujdubey.cf)
+
+## Contact
+
+Web: www.ambujdubey.cf or https://ambujbpl.github.io
+
+Other Website : http://ambujdubey.herokuapp.com
+
+Email: ambujdubey@outlook.com
+
+Twitter: https://twitter.com/@mbujdubey
+
+
 
